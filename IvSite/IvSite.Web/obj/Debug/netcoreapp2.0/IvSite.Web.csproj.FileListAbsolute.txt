@@ -1,0 +1,12 @@
+c:\users\iv velichkova\Source\Repos\IvSite\IvSite.Web\bin\Debug\netcoreapp2.0\IvSite.Web.deps.json
+c:\users\iv velichkova\Source\Repos\IvSite\IvSite.Web\bin\Debug\netcoreapp2.0\IvSite.Web.runtimeconfig.json
+c:\users\iv velichkova\Source\Repos\IvSite\IvSite.Web\bin\Debug\netcoreapp2.0\IvSite.Web.runtimeconfig.dev.json
+c:\users\iv velichkova\Source\Repos\IvSite\IvSite.Web\bin\Debug\netcoreapp2.0\IvSite.Web.dll
+c:\users\iv velichkova\Source\Repos\IvSite\IvSite.Web\bin\Debug\netcoreapp2.0\IvSite.Web.pdb
+c:\users\iv velichkova\Source\Repos\IvSite\IvSite.Web\obj\Debug\netcoreapp2.0\IvSite.Web.csprojResolveAssemblyReference.cache
+c:\users\iv velichkova\Source\Repos\IvSite\IvSite.Web\obj\Debug\netcoreapp2.0\IvSite.Web.csproj.CoreCompileInputs.cache
+c:\users\iv velichkova\Source\Repos\IvSite\IvSite.Web\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+c:\users\iv velichkova\Source\Repos\IvSite\IvSite.Web\obj\Debug\netcoreapp2.0\IvSite.Web.AssemblyInfoInputs.cache
+c:\users\iv velichkova\Source\Repos\IvSite\IvSite.Web\obj\Debug\netcoreapp2.0\IvSite.Web.AssemblyInfo.cs
+c:\users\iv velichkova\Source\Repos\IvSite\IvSite.Web\obj\Debug\netcoreapp2.0\IvSite.Web.dll
+c:\users\iv velichkova\Source\Repos\IvSite\IvSite.Web\obj\Debug\netcoreapp2.0\IvSite.Web.pdb
