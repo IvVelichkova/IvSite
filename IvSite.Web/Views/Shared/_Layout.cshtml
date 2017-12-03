@@ -1,0 +1,182 @@
+﻿<html lang="en" class="yui3-js-enabled">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A layout example that shows off a responsive product landing page.">
+
+    <title>@ViewData["Title"] - Camera Bazar</title>
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/marketing.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+    <!--<![endif]-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="/combo/1.18.13?/css/layouts/marketing-old-ie.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="/combo/1.18.13?/css/layouts/marketing.css">
+    <!--<![endif]-->
+    <!--[if lt IE 9]>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
+    <![endif]-->
+    <script async="" src="//www.google-analytics.com/analytics.js"></script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-41480445-1', 'purecss.io');
+        ga('send', 'pageview');
+    </script>
+    <script src="https://yui-s.yahooapis.com/combo?3.18.1/yui/yui-min.js"></script>
+    <script charset="utf-8" id="yui_3_18_1_1_1512231061106_2" src="https://yui-s.yahooapis.com/combo?3.18.1/oop/oop-min.js&amp;3.18.1/event-custom-base/event-custom-base-min.js&amp;3.18.1/event-base/event-base-min.js&amp;3.18.1/dom-core/dom-core-min.js&amp;3.18.1/dom-base/dom-base-min.js&amp;3.18.1/selector-native/selector-native-min.js&amp;3.18.1/selector/selector-min.js&amp;3.18.1/node-core/node-core-min.js&amp;3.18.1/dom-style/dom-style-min.js&amp;3.18.1/node-base/node-base-min.js&amp;3.18.1/event-delegate/event-delegate-min.js&amp;3.18.1/node-event-delegate/node-event-delegate-min.js" async=""></script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/Logo.png" style="display: inline-block;">
+                    <span style="display: inline-block;"></span>
+                </a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*<a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">CarDealer.App</a>*@
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Logout</a></li>
+                    }
+                    else
+                    {
+                        <li class="pure-menu-item"><a href="" class="pure-menu-link">Login</a></li>
+                        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Register</a></li>
+                    }
+
+                </ul>
+                
+            </div>
+        </div>
+    </nav>
+   
+    <div class="splash-container">
+        <div class="splash">
+            @*<h1 class="splash-head">Big Bold Text</h1>*@
+            <p class="splash-subhead">
+              <h1>Welcome</h1>
+            </p>
+            <p>
+                <a href="http://purecss.io" class="pure-button pure-button-primary">Get Started</a>
+            </p>
+        </div>
+    </div>
+    <div class="content-wrapper">
+        <div class="content">
+            @RenderBody()
+            <h2 class="content-head is-center">Excepteur sint occaecat cupidatat.</h2>
+        </div>
+        <div class="ribbon l-box-lrg pure-g">
+            <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+                <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
+                    <h2 class="content-head content-head-ribbon">Laboris nisi ut aliquip.</h2>
+                    @*<p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat. Duis aute irure dolor.
+                        </p>*@
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <h2 class="content-head is-center">Dolore magna aliqua. Uis aute irure.</h2>
+            <div class="pure-g">
+                <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <form class="pure-form pure-form-stacked">
+                            <fieldset>
+                                <label for="name">Your Name</label>
+                                <input id="name" type="text" placeholder="Your Name">
+                                <label for="email">Your Email</label>
+                                <input id="email" type="email" placeholder="Your Email">
+                                <label for="password">Your Password</label>
+                                <input id="password" type="password" placeholder="Your Password">
+                                <button type="submit" class="pure-button">Sign Up</button>
+                            </fieldset>
+                        </form>
+                    }
+                </div>
+                <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
+                    <h4>Contact Us</h4>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat.
+                    </p>
+                    <h4>More Information</h4>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="footer is-center">
+            <p>&copy; 2017 - CameraBazar.Web</p>
+            <audio controls="controls" autoPlay="autoPlay">
+                <source src="~/images/Forest Birdsong - Relaxing Nature Sounds Birds.mp3" type="audio/x-wav" />
+            </audio>
+        </div>
+    </div>
+    <script>
+        (function (root) {
+            /* -- Data -- */
+            root.YUI_config = { "version": "3.18.1", "base": "http:\u002F\u002Fyui.yahooapis.com\u002F3.18.1\u002F", "comboBase": "https:\u002F\u002Fyui-s.yahooapis.com\u002Fcombo?", "comboSep": "&", "root": "3.18.1\u002F", "filter": "min", "logLevel": "error", "combine": true, "patches": [], "maxURLLength": 2048, "groups": { "vendor": { "combine": true, "comboBase": "\u002Fcombo\u002F1.18.13?", "base": "\u002F", "root": "\u002F", "modules": { "css-mediaquery": { "path": "vendor\u002Fcss-mediaquery.js" }, "handlebars-runtime": { "path": "vendor\u002Fhandlebars.runtime.js" } } }, "app": { "combine": true, "comboBase": "\u002Fcombo\u002F1.18.13?", "base": "\u002Fjs\u002F", "root": "\u002Fjs\u002F" } } };
+            root.app || (root.app = {});
+            root.app.yui = { "use": function () { return this._bootstrap('use', [].slice.call(arguments)); }, "require": function () { this._bootstrap('require', [].slice.call(arguments)); }, "ready": function (callback) { this.use(function () { callback(); }); }, "_bootstrap": function bootstrap(method, args) { var self = this, d = document, head = d.getElementsByTagName('head')[0], ie = /MSIE/.test(navigator.userAgent), callback = [], config = typeof YUI_config != "undefined" ? YUI_config : {}; function flush() { var l = callback.length, i; if (!self.YUI && typeof YUI == "undefined") { throw new Error("YUI was not injected correctly!"); } self.YUI = self.YUI || YUI; for (i = 0; i < l; i++) { callback.shift()(); } } function decrementRequestPending() { self._pending--; if (self._pending <= 0) { setTimeout(flush, 0); } else { load(); } } function createScriptNode(src) { var node = d.createElement('script'); if (node.async) { node.async = false; } if (ie) { node.onreadystatechange = function () { if (/loaded|complete/.test(this.readyState)) { this.onreadystatechange = null; decrementRequestPending(); } }; } else { node.onload = node.onerror = decrementRequestPending; } node.setAttribute('src', src); return node; } function load() { if (!config.seed) { throw new Error('YUI_config.seed array is required.'); } var seed = config.seed, l = seed.length, i, node; if (!self._injected) { self._injected = true; self._pending = seed.length; } for (i = 0; i < l; i++) { node = createScriptNode(seed.shift()); head.appendChild(node); if (node.async !== false) { break; } } } callback.push(function () { var i; if (!self._Y) { self.YUI.Env.core.push.apply(self.YUI.Env.core, config.extendedCore || []); self._Y = self.YUI(); self.use = self._Y.use; if (config.patches && config.patches.length) { for (i = 0; i < config.patches.length; i += 1) { config.patches[i](self._Y, self._Y.Env._loader); } } } self._Y[method].apply(self._Y, args); }); self.YUI = self.YUI || (typeof YUI != "undefined" ? YUI : null); if (!self.YUI && !self._injected) { load(); } else if (self._pending <= 0) { setTimeout(flush, 0); } return this; } };
+            root.YUI_config || (root.YUI_config = {});
+            root.YUI_config.seed = ["https:\u002F\u002Fyui-s.yahooapis.com\u002Fcombo?3.18.1\u002Fyui\u002Fyui-min.js"];
+            root.YUI_config.groups || (root.YUI_config.groups = {});
+            root.YUI_config.groups.app || (root.YUI_config.groups.app = {});
+            root.YUI_config.groups.app.modules = { "start\u002Fapp": { "path": "start\u002Fapp.js", "requires": ["handlebars-runtime", "yui", "base-build", "router", "pjax-base", "view", "start\u002Fmodels\u002Fgrid", "start\u002Fviews\u002Finput", "start\u002Fviews\u002Foutput", "start\u002Fviews\u002Fdownload"] }, "start\u002Fmodels\u002Fgrid": { "path": "start\u002Fmodels\u002Fgrid.js", "requires": ["yui", "querystring", "base-build", "model", "model-sync-rest", "start\u002Fmodels\u002Fmq"] }, "start\u002Fmodels\u002Fmq": { "path": "start\u002Fmodels\u002Fmq.js", "requires": ["css-mediaquery", "attribute", "base-build", "model", "model-list"] }, "start\u002Fviews\u002Fdownload": { "path": "start\u002Fviews\u002Fdownload.js", "requires": ["yui", "base-build", "querystring", "view"] }, "start\u002Fviews\u002Finput": { "path": "start\u002Fviews\u002Finput.js", "requires": ["base-build", "start\u002Fmodels\u002Fmq", "start\u002Fviews\u002Ftab"] }, "start\u002Fviews\u002Foutput": { "path": "start\u002Fviews\u002Foutput.js", "requires": ["base-build", "escape", "start\u002Fviews\u002Ftab"] }, "start\u002Fviews\u002Ftab": { "path": "start\u002Fviews\u002Ftab.js", "requires": ["yui", "base-build", "view"] } };
+        }(this));
+    </script>
+    <script>
+        app.yui.use('node-base', 'node-event-delegate', function (Y) {
+            // This just makes sure that the href="#" attached to the <a> elements
+            // don't scroll you back up the page.
+            Y.one('body').delegate('click', function (e) {
+                e.preventDefault();
+            }, 'a[href="#"]');
+        });
+    </script>
+    <div id="yui3-css-stamp" style="position: absolute !important; visibility: hidden !important"></div>
+</body>
+</html>
