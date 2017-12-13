@@ -3,6 +3,7 @@
     using System;
     using AutoMapper;
     using System.Linq;
+    using IvSite.Core.Mapping;
 
     public class AutoMapperProfile : Profile
     {

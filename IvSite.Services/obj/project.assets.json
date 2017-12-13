@@ -1310,6 +1310,16 @@
           "ref/netstandard1.3/System.Threading.Tasks.dll": {}
         }
       },
+      "IvSite.Core/1.0.0": {
+        "type": "project",
+        "framework": "Unsupported,Version=v0.0",
+        "compile": {
+          "bin/placeholder/IvSite.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/IvSite.Core.dll": {}
+        }
+      },
       "IvSite.Data/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -4624,6 +4634,11 @@
         "system.threading.tasks.nuspec"
       ]
     },
+    "IvSite.Core/1.0.0": {
+      "type": "project",
+      "path": "../IvSite.Core/IvSite.Core.csproj",
+      "msbuildProject": "../IvSite.Core/IvSite.Core.csproj"
+    },
     "IvSite.Data/1.0.0": {
       "type": "project",
       "path": "../IvSite.Data/IvSite.Data.csproj",
@@ -4633,7 +4648,9 @@
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "AutoMapper >= 6.2.2",
+      "IvSite.Core >= 1.0.0",
       "IvSite.Data >= 1.0.0",
+      "Microsoft.EntityFrameworkCore >= 2.0.1",
       "NETStandard.Library >= 2.0.0"
     ]
   },
@@ -4673,6 +4690,9 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
+            "C:\\Users\\Iv Velichkova\\Source\\Repos\\IvSite\\IvSite\\IvSite.Core\\IvSite.Core.csproj": {
+              "projectPath": "C:\\Users\\Iv Velichkova\\Source\\Repos\\IvSite\\IvSite\\IvSite.Core\\IvSite.Core.csproj"
+            },
             "C:\\Users\\Iv Velichkova\\Source\\Repos\\IvSite\\IvSite\\IvSite.Data\\IvSite.Data.csproj": {
               "projectPath": "C:\\Users\\Iv Velichkova\\Source\\Repos\\IvSite\\IvSite\\IvSite.Data\\IvSite.Data.csproj"
             }
@@ -4692,6 +4712,10 @@
             "target": "Package",
             "version": "[6.2.2, )"
           },
+          "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[2.0.1, )"
+          },
           "NETStandard.Library": {
             "suppressParent": "All",
             "target": "Package",
@@ -4706,5 +4730,16 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1201",
+      "level": "Error",
+      "message": "Project IvSite.Core is not compatible with netstandard2.0 (.NETStandard,Version=v2.0). Project IvSite.Core supports: netcoreapp2.0 (.NETCoreApp,Version=v2.0)",
+      "libraryId": "IvSite.Core",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    }
+  ]
 }

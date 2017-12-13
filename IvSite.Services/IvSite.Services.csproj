@@ -6,10 +6,16 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.2.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.0.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\IvSite.Core\IvSite.Core.csproj" />
     <ProjectReference Include="..\IvSite.Data\IvSite.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Admin\Models\" />
   </ItemGroup>
 
 </Project>

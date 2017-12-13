@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\IvSite.Core\IvSite.Core.csproj" />
     <ProjectReference Include="..\IvSite.Data\IvSite.Data.csproj" />
     <ProjectReference Include="..\IvSite.Services\IvSite.Services.csproj" />
   </ItemGroup>

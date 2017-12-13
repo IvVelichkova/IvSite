@@ -1,4 +1,4 @@
-﻿namespace IvSite.Web.Infrastructure.Mapping
+﻿namespace IvSite.Core.Mapping
 {
     using AutoMapper;
 

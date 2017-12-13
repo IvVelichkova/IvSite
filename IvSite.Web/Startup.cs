@@ -41,6 +41,8 @@
 
             services.AddAutoMapper();
 
+            services.AddDomainServices();
+
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
