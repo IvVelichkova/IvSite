@@ -14,3 +14,5 @@ C:\Users\Iv Velichkova\Source\Repos\IvSite\IvSite\IvSite.Web\obj\Debug\netcoreap
 C:\Users\Iv Velichkova\Source\Repos\IvSite\IvSite\IvSite.Web\obj\Debug\netcoreapp2.0\IvSite.Web.AssemblyInfo.cs
 C:\Users\Iv Velichkova\Source\Repos\IvSite\IvSite\IvSite.Web\obj\Debug\netcoreapp2.0\IvSite.Web.dll
 C:\Users\Iv Velichkova\Source\Repos\IvSite\IvSite\IvSite.Web\obj\Debug\netcoreapp2.0\IvSite.Web.pdb
+C:\Users\Iv Velichkova\Source\Repos\IvSite\IvSite\IvSite.Web\bin\Debug\netcoreapp2.0\IvSite.Core.dll
+C:\Users\Iv Velichkova\Source\Repos\IvSite\IvSite\IvSite.Web\bin\Debug\netcoreapp2.0\IvSite.Core.pdb

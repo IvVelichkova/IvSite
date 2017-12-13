@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IvSite.Services", "IvSite.S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IvSite.Web", "IvSite.Web\IvSite.Web.csproj", "{6C905411-0F2B-49E6-B7FC-C025EAA4C92E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IvSite.Core", "IvSite.Core\IvSite.Core.csproj", "{175B351C-1EB4-4DEC-BEBA-E02171C450EB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IvSite.Core", "IvSite.Core\IvSite.Core.csproj", "{B7571DBF-11CE-4C81-8A6E-F67095B4EC9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{6C905411-0F2B-49E6-B7FC-C025EAA4C92E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C905411-0F2B-49E6-B7FC-C025EAA4C92E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C905411-0F2B-49E6-B7FC-C025EAA4C92E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{175B351C-1EB4-4DEC-BEBA-E02171C450EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{175B351C-1EB4-4DEC-BEBA-E02171C450EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{175B351C-1EB4-4DEC-BEBA-E02171C450EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{175B351C-1EB4-4DEC-BEBA-E02171C450EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7571DBF-11CE-4C81-8A6E-F67095B4EC9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7571DBF-11CE-4C81-8A6E-F67095B4EC9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7571DBF-11CE-4C81-8A6E-F67095B4EC9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7571DBF-11CE-4C81-8A6E-F67095B4EC9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

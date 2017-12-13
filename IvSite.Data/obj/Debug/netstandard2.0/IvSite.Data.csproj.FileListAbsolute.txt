@@ -1,9 +1,9 @@
 C:\Users\Iv Velichkova\Source\Repos\IvSite\IvSite\IvSite.Data\bin\Debug\netstandard2.0\IvSite.Data.deps.json
 C:\Users\Iv Velichkova\Source\Repos\IvSite\IvSite\IvSite.Data\bin\Debug\netstandard2.0\IvSite.Data.dll
 C:\Users\Iv Velichkova\Source\Repos\IvSite\IvSite\IvSite.Data\bin\Debug\netstandard2.0\IvSite.Data.pdb
-C:\Users\Iv Velichkova\Source\Repos\IvSite\IvSite\IvSite.Data\obj\Debug\netstandard2.0\IvSite.Data.csprojResolveAssemblyReference.cache
 C:\Users\Iv Velichkova\Source\Repos\IvSite\IvSite\IvSite.Data\obj\Debug\netstandard2.0\IvSite.Data.csproj.CoreCompileInputs.cache
 C:\Users\Iv Velichkova\Source\Repos\IvSite\IvSite\IvSite.Data\obj\Debug\netstandard2.0\IvSite.Data.AssemblyInfoInputs.cache
 C:\Users\Iv Velichkova\Source\Repos\IvSite\IvSite\IvSite.Data\obj\Debug\netstandard2.0\IvSite.Data.AssemblyInfo.cs
 C:\Users\Iv Velichkova\Source\Repos\IvSite\IvSite\IvSite.Data\obj\Debug\netstandard2.0\IvSite.Data.dll
 C:\Users\Iv Velichkova\Source\Repos\IvSite\IvSite\IvSite.Data\obj\Debug\netstandard2.0\IvSite.Data.pdb
+C:\Users\Iv Velichkova\Source\Repos\IvSite\IvSite\IvSite.Data\obj\Debug\netstandard2.0\IvSite.Data.csprojResolveAssemblyReference.cache
