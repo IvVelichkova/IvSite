@@ -1,6 +1,7 @@
-﻿namespace IvSite.Services
+﻿
+namespace IvSite.Services
 {
-    public interface IUserService
+    public interface IUserService 
     {
     }
 }

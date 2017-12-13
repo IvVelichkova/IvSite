@@ -3,8 +3,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A layout example that shows off a responsive product landing page.">
-
-    <title>@ViewData["Title"] - Camera Bazar</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <title>@ViewData["Title"] - IvSite</title>
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/marketing.css" />
         <link rel="stylesheet" href="~/css/site.css" />
@@ -68,27 +69,16 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
 
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Logout</a></li>
-                    }
-                    else
-                    {
-                        <li class="pure-menu-item"><a href="" class="pure-menu-link">Login</a></li>
-                        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Register</a></li>
-                    }
-
-                </ul>
-                
+                    @await Html.PartialAsync("_LoginPartial")
             </div>
         </div>
     </nav>
-   
+
     <div class="splash-container">
         <div class="splash">
             @*<h1 class="splash-head">Big Bold Text</h1>*@
             <p class="splash-subhead">
-              <h1>Welcome</h1>
+                <h1>Welcome</h1>
             </p>
             <p>
                 <a href="http://purecss.io" class="pure-button pure-button-primary">Get Started</a>
@@ -149,7 +139,7 @@
             </div>
         </div>
         <div class="footer is-center">
-            <p>&copy; 2017 - CameraBazar.Web</p>
+            <p>&copy; 2017 - IvSite</p>
             <audio controls="controls" autoPlay="autoPlay">
                 <source src="~/images/Forest Birdsong - Relaxing Nature Sounds Birds.mp3" type="audio/x-wav" />
             </audio>
@@ -178,5 +168,6 @@
         });
     </script>
     <div id="yui3-css-stamp" style="position: absolute !important; visibility: hidden !important"></div>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

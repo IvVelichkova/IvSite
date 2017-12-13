@@ -1,12 +1,3 @@
-c:\users\iv velichkova\Source\Repos\IvSite\IvSite.Services\bin\Debug\netstandard2.0\IvSite.Services.deps.json
-c:\users\iv velichkova\Source\Repos\IvSite\IvSite.Services\bin\Debug\netstandard2.0\IvSite.Services.dll
-c:\users\iv velichkova\Source\Repos\IvSite\IvSite.Services\bin\Debug\netstandard2.0\IvSite.Services.pdb
-c:\users\iv velichkova\Source\Repos\IvSite\IvSite.Services\obj\Debug\netstandard2.0\IvSite.Services.csprojResolveAssemblyReference.cache
-c:\users\iv velichkova\Source\Repos\IvSite\IvSite.Services\obj\Debug\netstandard2.0\IvSite.Services.csproj.CoreCompileInputs.cache
-c:\users\iv velichkova\Source\Repos\IvSite\IvSite.Services\obj\Debug\netstandard2.0\IvSite.Services.AssemblyInfoInputs.cache
-c:\users\iv velichkova\Source\Repos\IvSite\IvSite.Services\obj\Debug\netstandard2.0\IvSite.Services.AssemblyInfo.cs
-c:\users\iv velichkova\Source\Repos\IvSite\IvSite.Services\obj\Debug\netstandard2.0\IvSite.Services.dll
-c:\users\iv velichkova\Source\Repos\IvSite\IvSite.Services\obj\Debug\netstandard2.0\IvSite.Services.pdb
 C:\Users\Iv Velichkova\Source\Repos\IvSite\IvSite\IvSite.Services\bin\Debug\netstandard2.0\IvSite.Services.deps.json
 C:\Users\Iv Velichkova\Source\Repos\IvSite\IvSite\IvSite.Services\bin\Debug\netstandard2.0\IvSite.Services.dll
 C:\Users\Iv Velichkova\Source\Repos\IvSite\IvSite\IvSite.Services\bin\Debug\netstandard2.0\IvSite.Services.pdb

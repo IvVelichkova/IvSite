@@ -10,13 +10,4 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Data\Blog\" />
-    <Folder Include="Data\Gallery\" />
-    <Folder Include="Data\Article\" />
-    <Folder Include="Data\User\" />
-    <Folder Include="Models\Articles\" />
-    <Folder Include="Models\Blog\" />
-  </ItemGroup>
-
 </Project>

@@ -1,7 +1,9 @@
 ﻿namespace IvSite.Web
 {
-    using IvSite.Web.Data;
-    using IvSite.Web.Models;
+    using AutoMapper;
+    using IvSite.Data;
+    using IvSite.Data.Models.Users;
+    using IvSite.Web.Extensions;
     using IvSite.Web.Services;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -19,10 +21,10 @@
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+       
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<IvSiteDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<User, IdentityRole>(options =>
@@ -30,21 +32,25 @@
                 options.Password.RequireLowercase = false;
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
+                options.Password.RequireDigit = false;
 
-
+                
             })
-                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddEntityFrameworkStores<IvSiteDbContext>()
                 .AddDefaultTokenProviders();
 
-            // Add application services.
+            services.AddAutoMapper();
+
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseDatabaseMigration();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

@@ -38,20 +38,21 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
 
-                 @if (User.Identity.IsAuthenticated)
-                {
-                        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Logout</a></li>
-                        if (Roles.IsUserInRole(User.Identity.Name, "Administrators"))
-                           {
-                            <li class="pure-menu-item"><a href="#" class="pure-menu-link">AdminMenu</a></li>
-                            }
-                }
-                else
-                {
-                        <li class="pure-menu-item"><a href="" class="pure-menu-link">Login</a></li>
-                        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Register</a></li>
-                }   
+                    @*@if (User.Identity.IsAuthenticated)
+            {
+                   <li class="pure-menu-item"><a href="#" class="pure-menu-link">Logout</a></li>
+                @* if (Roles.IsUserInRole(User.Identity.Name, "Admin"))
+                    {
+                     <li class="pure-menu-item"><a href="#" class="pure-menu-link">AdminMenu</a></li>
+                     }*@
+                    @*}
+             else
+             {
+                    <li class="pure-menu-item"><a href="" class="pure-menu-link">Login</a></li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Register</a></li>
+            }*@
                 </ul>
+                @await Html.PartialAsync("_LoginPartial")
             </div>
         </div>
     </nav>
@@ -60,7 +61,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2017 - CarDealer.App</p>
+            <p>&copy; IvSite</p>
         </footer>
     </div>
 
