@@ -9,3 +9,5 @@ C:\Users\Iv Velichkova\Source\Repos\IvSite\IvSite\IvSite.Services\obj\Debug\nets
 C:\Users\Iv Velichkova\Source\Repos\IvSite\IvSite\IvSite.Services\obj\Debug\netstandard2.0\IvSite.Services.AssemblyInfo.cs
 C:\Users\Iv Velichkova\Source\Repos\IvSite\IvSite\IvSite.Services\obj\Debug\netstandard2.0\IvSite.Services.dll
 C:\Users\Iv Velichkova\Source\Repos\IvSite\IvSite\IvSite.Services\obj\Debug\netstandard2.0\IvSite.Services.pdb
+C:\Users\Iv Velichkova\Source\Repos\IvSite\IvSite\IvSite.Services\bin\Debug\netstandard2.0\IvSite.Core.dll
+C:\Users\Iv Velichkova\Source\Repos\IvSite\IvSite\IvSite.Services\bin\Debug\netstandard2.0\IvSite.Core.pdb

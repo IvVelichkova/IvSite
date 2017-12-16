@@ -125,13 +125,18 @@ a.pure-button-primary {
     color: #AECFE5;
 }
 
+pure-menu-link {
+    color: #2d3e50;
+}
+.pure-menu-link {
+    color: #2d3e50;
+    background-color: #2d3e50
+}
 
-/*
  * -- SPLASH STYLES --
  * This is the blue top section that appears on the page.
  */
-
-.splash-container {
+    .splash-container {
     background: #1f8dd6;
     z-index: 1;
     overflow: hidden;

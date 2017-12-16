@@ -13,5 +13,6 @@ namespace IvSite.Web
 
         public const string GuestRole = "Guest";
 
+        public const string TempDataSuccess = "SuccessMessage";
     }
 }

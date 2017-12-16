@@ -1,0 +1,12 @@
+﻿@using IvSite.Web.Areas.Admin.Models.Users
+
+@if (User.IsInRole(WebConstants.AdminRole))
+{
+<ul class="nav navbar-nav navbar-right">
+    <li>
+        <a asp-area="Admin" asp-controller="Home" asp-action="Menu">Menu</a>
+        @*<a asp-area="Admin" asp-controller="Home" asp-action="AllRooms">All Rooms</a>*@
+
+    </li>
+</ul>
+}

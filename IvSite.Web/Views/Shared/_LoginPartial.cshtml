@@ -1,5 +1,5 @@
 @using Microsoft.AspNetCore.Identity
-@using IvSite.Data.Models.Users
+@using IvSite.Web.Areas.Admin.Models.Users
 
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
@@ -16,6 +16,34 @@
             </li>
         </ul>
     </form>
+    @*<div class="pure-menu pure-menu-horizontal">
+            <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
+                <ul class="pure-menu-list">
+                    <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+                        <a href="#" id="menuLink1" class="pure-menu-link">Contact</a>
+                        <ul class="pure-menu-children">
+                            <li><button name="logout" type="submit" class="btn btn-link navbar-btn navbar-link" onmouseover="this.style.color = '##2d3e50'" onmouseout="this.style.color = 'black'"><strong>Log out</strong></button></li>
+                            @*<li><a onclick="document.getElementsByName('logout')[0].click()">Log out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </form>
+        </div>*@
+
+
+    @*<div class="pure-menu pure-menu-horizontal">
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Home</a></li>
+                <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+                    <a href="#" id="menuLink1" class="pure-menu-link">Contact</a>
+                    <ul class="pure-menu-children">
+                        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Email</a></li>
+                        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Twitter</a></li>
+                        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Tumblr Blog</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>*@
 }
 else
 {
@@ -24,3 +52,6 @@ else
         <li><a asp-area="" asp-controller="Account" asp-action="Login">Log in</a></li>
     </ul>
 }
+
+
+

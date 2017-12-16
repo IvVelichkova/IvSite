@@ -26,10 +26,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Articles\Models\" />
     <Folder Include="Areas\Blog\Data\" />
     <Folder Include="Areas\Blog\Models\" />
+    <Folder Include="Models\Users\" />
   </ItemGroup>
 
 </Project>

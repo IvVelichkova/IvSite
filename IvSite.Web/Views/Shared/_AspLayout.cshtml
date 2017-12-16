@@ -33,24 +33,16 @@
                 </button>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                <ul class="nav navbar-nav navbar-left">
+                    @if (User.Identity.IsAuthenticated)
+                     {
+            <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
 
-                    @*@if (User.Identity.IsAuthenticated)
-            {
-                   <li class="pure-menu-item"><a href="#" class="pure-menu-link">Logout</a></li>
-                @* if (Roles.IsUserInRole(User.Identity.Name, "Admin"))
-                    {
-                     <li class="pure-menu-item"><a href="#" class="pure-menu-link">AdminMenu</a></li>
-                     }*@
-                    @*}
-             else
-             {
-                    <li class="pure-menu-item"><a href="" class="pure-menu-link">Login</a></li>
-                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Register</a></li>
-            }*@
+            <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+            @Html.Partial("~/Views/Shared/_AdminMenu.cshtml")
+
+              }
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>
@@ -58,12 +50,25 @@
     </nav>
 
     <div class="container body-content">
+        @if (TempData.ContainsKey(WebConstants.TempDataSuccess))
+        {
+            <div class="alert alert-success center-block align-content-md-center">
+                @TempData[WebConstants.TempDataSuccess]
+            </div>
+        }
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; IvSite</p>
-        </footer>
+        <br />
+
+        <div class="footer is-center">
+            <p>&copy; 2017 - IvSite</p>
+            <div class="form-horizontal">
+
+            </div>
+            
+        </div>
     </div>
+   
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
@@ -85,6 +90,7 @@
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
+
 
     @RenderSection("Scripts", required: false)
 </body>

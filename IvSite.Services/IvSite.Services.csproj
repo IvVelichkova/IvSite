@@ -5,11 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\IvSite.Core\IvSite.Core.csproj" />
     <ProjectReference Include="..\IvSite.Data\IvSite.Data.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Admin\Models\" />
   </ItemGroup>
 
 </Project>
