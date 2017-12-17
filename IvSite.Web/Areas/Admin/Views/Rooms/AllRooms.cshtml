@@ -1,0 +1,60 @@
+﻿@model AllRoomsViewModel
+@{
+    ViewData["Title"] = "AllRooms";
+}
+
+<div class="pure-g">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Capacity
+                </th>
+                <th>
+                    Lux Status
+                </th>
+                <th>
+                    Is for Smokers
+                </th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var room in Model.Rooms)
+            {
+            <tr>
+                <th>
+                    @room.Id
+                </th>
+                <th>
+                    @room.Name
+                </th>
+                <th>
+                    @room.Capacity
+                </th>
+                <th>
+                    @room.Smokers
+                </th>
+                <th>
+                    <form asp-area="Admin" asp-controller="Rooms" asp-action="Edit" method="post">
+
+                        @Html.ActionLink("Edit", "Edit", new { id = room.Id }) |
+
+                    </form>
+                    <form asp-area="Admin" asp-controller="Rooms" asp-action="Delete" method="post">
+                       
+                        @Html.ActionLink("Delete", "Delete", new { id = room.Id })
+                        </form>
+                </th>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

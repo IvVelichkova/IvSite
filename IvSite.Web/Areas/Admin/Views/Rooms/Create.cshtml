@@ -1,0 +1,38 @@
+﻿@model CreateRoomServiceModel
+@{
+    ViewData["Title"] = "Add New Room";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <h4>Add New Room</h4>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Capacity"></label>
+                <select asp-for="Capacity" asp-items="Html.GetEnumSelectList<CapacityRoom>()" class="form-control"></select>
+                <span asp-validation-for="Capacity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LuxStatus"></label>
+                <select asp-for="LuxStatus" asp-items="Html.GetEnumSelectList<LuxStatus>()" class="form-control"></select>
+                <span asp-validation-for="LuxStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Smokers"></label>
+                @*<input type="radio" name="IsFullFrame"  value="True"/>*@
+                @Html.RadioButtonFor(m => m.Smokers, true) Yes
+                @Html.RadioButtonFor(m => m.Smokers, false) No
+                <span asp-validation-for="Smokers" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-default">Add Room</button>
+        </form>
+    </div>
+</div>

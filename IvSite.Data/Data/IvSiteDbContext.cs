@@ -13,11 +13,11 @@
         {
         }
 
-        DbSet<Room> Rooms { get; set; }
+       public DbSet<Room> Rooms { get; set; }
 
-        DbSet<Reservation> Reserve { get; set; }
+       public DbSet<Reservation> Reserve { get; set; }
 
-        DbSet<Article> Articles { get; set; }
+      public  DbSet<Article> Articles { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

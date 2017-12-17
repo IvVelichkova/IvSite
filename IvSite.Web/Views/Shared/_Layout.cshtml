@@ -17,10 +17,10 @@
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-old-ie-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-old-ie-min.css">
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">   
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
     @*<script src="https://yui-s.yahooapis.com/combo?3.18.1/yui/yui-min.js"></script>*@
     <script charset="utf-8" id="yui_3_18_1_1_1512231061106_2" src="https://yui-s.yahooapis.com/combo?3.18.1/oop/oop-min.js&amp;3.18.1/event-custom-base/event-custom-base-min.js&amp;3.18.1/event-base/event-base-min.js&amp;3.18.1/dom-core/dom-core-min.js&amp;3.18.1/dom-base/dom-base-min.js&amp;3.18.1/selector-native/selector-native-min.js&amp;3.18.1/selector/selector-min.js&amp;3.18.1/node-core/node-core-min.js&amp;3.18.1/dom-style/dom-style-min.js&amp;3.18.1/node-base/node-base-min.js&amp;3.18.1/event-delegate/event-delegate-min.js&amp;3.18.1/node-event-delegate/node-event-delegate-min.js" async=""></script>
 </head>
@@ -32,24 +32,27 @@
                     <img src="~/images/Logo.png" style="display: inline-block;">
                     <span style="display: inline-block;"></span>
                 </a>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                @*<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>
+                </button>*@
             </div>
             <div class="pure-menu pure-menu-horizontal">
                 <ul class="nav navbar-nav navbar-left">
-                    @if (User.Identity.IsAuthenticated)
-    {
-                <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    @if (User.Identity.IsAuthenticated && !User.IsInRole(WebConstants.AdminRole))
+                    {
+                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
 
-                <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                @Html.Partial("~/Views/Shared/_AdminMenu.cshtml")
+                    }
+                    @if (User.IsInRole(WebConstants.AdminRole))
+                    {
+                        @Html.Partial("~/Views/Shared/_AdminMenu.cshtml")
 
-}
+                    }
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>
@@ -77,12 +80,12 @@
             <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
                 <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
                     <h2 class="content-head content-head-ribbon">Laboris nisi ut aliquip.</h2>
-                   <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor.
-                        </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor.
+                    </p>
                 </div>
             </div>
         </div>
@@ -91,16 +94,16 @@
             <div class="pure-g">
                 <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
                     @if (!User.Identity.IsAuthenticated)
-    {
-
-                <a asp-area="" asp-controller="Account" asp-action="Login">Log In</a>
-
-
-}
-                   @if (User.IsInRole(WebConstants.AdminRole))
                     {
-                    <a asp-area="Admin" asp-controller="Home" asp-action="AllUsers">Users</a>
+
+                        <a asp-area="" asp-controller="Account" asp-action="Login">Log In</a>
+
+
                     }
+                    @*@if (User.IsInRole(WebConstants.AdminRole))
+                        {
+                            <a asp-area="Admin" asp-controller="Home" asp-action="AllUsers">Users</a>
+                        }*@
                 </div>
                 <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
                     <h4>Contact Us</h4>
@@ -128,18 +131,18 @@
     <script src="~/js/SecounMenu.js"></script>
     <script src="~/js/nodeBase.js"></script>
 
-     @*<script>
-        // When the user scrolls down 20px from the top of the document, slide down the navbar
-        window.onscroll = function () { scrollFunction() };
+    @*<script>
+            // When the user scrolls down 20px from the top of the document, slide down the navbar
+            window.onscroll = function () { scrollFunction() };
 
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                document.getElementById("navbar").style.top = "0";
-            } else {
-                document.getElementById("navbar").style.top = "-50px";
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("navbar").style.top = "0";
+                } else {
+                    document.getElementById("navbar").style.top = "-50px";
+                }
             }
-        }
-    </script>*@
+        </script>*@
     <div id="yui3-css-stamp" style="position: absolute !important; visibility: hidden !important"></div>
     @RenderSection("Scripts", required: false)
 </body>

@@ -1,4 +1,4 @@
-﻿namespace IvSite.Services.Admin
+﻿namespace IvSite.Services
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;

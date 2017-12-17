@@ -4,9 +4,9 @@ using System.Text;
 
 namespace IvSite.Data.Models.TypesRoom
 {
-   public enum StatusRoom
+    public enum StatusRoom
     {
-        Reserve=1,
-        Free=2
+        Free = 1,
+        Reserve = 2
     }
 }

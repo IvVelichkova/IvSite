@@ -1,0 +1,54 @@
+﻿@model EditRoomServiceModel
+
+
+<div class="form-horizontal">
+    <div class="form-group">
+        <form method="post">
+            <h4>Add New Room</h4>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <div class="form-group-lg form-text">
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                </div>
+                <select id="capacity">
+                    <option>@CapacityRoom.Single.ToString()</option>
+                    <option>@CapacityRoom.Twin.ToString()</option>
+                    <option>@CapacityRoom.Triple.ToString()</option>
+                    <option>@CapacityRoom.Quad.ToString()</option>
+                    <option>@CapacityRoom.DoubleDBR.ToString()</option>
+                </select>
+
+
+
+                <select id="Lux">
+                    <option>@LuxStatus.Lux.ToString()</option>
+                    <option>@LuxStatus.Standart.ToString()</option>
+                    <option>@LuxStatus.UltraLux.ToString()</option>
+                </select>
+
+
+
+                <label asp-for="Smokers"></label>
+                @Html.RadioButtonFor(m => m.Smokers, true) Yes
+                @Html.RadioButtonFor(m => m.Smokers, false) No
+                <span asp-validation-for="Smokers" class="text-danger"></span>
+
+
+
+                <div class="form-group">
+                    <div class="btn btn-group-lg">
+                        <button type="submit" class="btn btn-primary btn-group-lg">Send Mail</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
