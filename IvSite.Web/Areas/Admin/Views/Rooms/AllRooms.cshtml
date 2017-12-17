@@ -22,7 +22,9 @@
                 <th>
                     Is for Smokers
                 </th>
-
+                <th>
+                    #
+                </th>
             </tr>
         </thead>
 
@@ -40,6 +42,9 @@
                     @room.Capacity
                 </th>
                 <th>
+                    @room.LuxStatus
+                </th>
+                <th>
                     @room.Smokers
                 </th>
                 <th>
@@ -49,9 +54,9 @@
 
                     </form>
                     <form asp-area="Admin" asp-controller="Rooms" asp-action="Delete" method="post">
-                       
+
                         @Html.ActionLink("Delete", "Delete", new { id = room.Id })
-                        </form>
+                    </form>
                 </th>
             </tr>
             }

@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
     using AutoMapper.QueryableExtensions;
     using IvSite.Data;
@@ -20,11 +21,6 @@
             this.db = db;
         }
 
-        public void All()
-        {
-            throw new NotImplementedException();
-        }
-
         public void Create(string name, CapacityRoom capacity, LuxStatus luxStatus, bool smoker)
         {
             var room = new Room
@@ -38,6 +34,12 @@
             this.db.Add(room);
             this.db.SaveChanges();
         }
+
+
+        public  EditRoomServiceModel FindToEdit(int Id) => this.db.Rooms.Where(r => r.Id == Id).ProjectTo<EditRoomServiceModel>().FirstOrDefault();
+       
+
+
 
         public void Edit(int id, string name, CapacityRoom capacity, LuxStatus luxStatus, bool smoker)
         {
@@ -54,10 +56,13 @@
 
         public async Task<IEnumerable<RoomsListingServiceModel>> AllRooms()
         {
-            return await this.db.Users.ProjectTo<RoomsListingServiceModel>().ToListAsync();
+
+            var res=await this.db.Rooms.ProjectTo<RoomsListingServiceModel>().ToListAsync();
+            return res;
+
         }
 
-        
+
     }
 }
 

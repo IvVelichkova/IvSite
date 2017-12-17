@@ -33,32 +33,28 @@
                     <span style="display: inline-block;"></span>
                 </a>
                 @*<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>*@
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>*@
             </div>
             <div class="pure-menu pure-menu-horizontal">
                 <ul class="nav navbar-nav navbar-left">
                     @if (User.Identity.IsAuthenticated && !User.IsInRole(WebConstants.AdminRole))
-                    {
-                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+    {
+                <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="Index">Blog</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="Index">Gallery</a></li>
+                <li><a asp-area="User" asp-controller="Home" asp-action="Create">Booking</a></li>
 
-                    }
-                    @if (User.IsInRole(WebConstants.AdminRole))
-                    {
-                        @Html.Partial("~/Views/Shared/_AdminMenu.cshtml")
-
-                    }
+                <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+}
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>
         </div>
     </nav>
-
     <div class="splash-container">
         <div class="splash">
             @*<h1 class="splash-head">Big Bold Text</h1>*@
@@ -73,6 +69,12 @@
     </div>
     <div class="content-wrapper">
         <div class="content">
+            @if (TempData.ContainsKey(WebConstants.TempDataSuccess))
+            {
+                <div class="alert alert-success center-block align-content-md-center">
+                    @TempData[WebConstants.TempDataSuccess]
+                </div>
+            }
             @RenderBody()
             <h2 class="content-head is-center">Excepteur sint occaecat cupidatat.</h2>
         </div>

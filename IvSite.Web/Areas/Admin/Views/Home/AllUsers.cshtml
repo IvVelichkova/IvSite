@@ -24,6 +24,7 @@
         <tbody>
             @foreach (var user in Model.Users)
             {
+
                 <tr>
                     <th>
                         @user.FirstName
@@ -31,20 +32,25 @@
                     <th>
                         @user.Email
                     </th>
-                    <th>                           
-                        <form asp-area="Admin" asp-controller="Home" asp-action="AddToRole"method="post">
+                    <th>
+                        <form asp-area="Admin" asp-controller="Home" asp-action="AddToRole" method="post">
                             <div class="row">
-                                <div class="col-md-6">
-                                     <input type="hidden" name="UserId" value="@user.Id" />
-                                     <select name="Role" asp-items="Model.Roles" class="form-control"></select>
-                                </div>
-                                <div class="col-md-4">
-                                    <input class="btn btn-sm btn-primary" type="submit" value="Add To Role" />
-                                </div>
+                                @if (user.Email != "admin@mysite.com")
+                                {
+                                    <div class="col-md-6">
+                                        <input type="hidden" name="UserId" value="@user.Id" />
+                                        <select name="Role" asp-items="Model.Roles" class="form-control"></select>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <input class="btn btn-sm btn-primary" type="submit" value="Add To Role" />
+                                    </div>
+                                }
                             </div>
                         </form>
                     </th>
                 </tr>
+
             }
         </tbody>
     </table>

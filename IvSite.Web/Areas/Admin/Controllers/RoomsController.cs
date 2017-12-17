@@ -13,6 +13,7 @@
     using static WebConstants;
     using IvSite.Services;
     using IvSite.Web.Extensions;
+    using Microsoft.AspNetCore.Mvc.Rendering;
 
     public class RoomsController : BaseController
     {
@@ -58,9 +59,8 @@
             {
                 return RedirectToAction("Index", "Home", new { area = "" });
             }
-
-
-            return View(new EditRoomServiceModel());
+            var model = this.rooms.FindToEdit(id);
+            return View(model);
            
         }
 
@@ -85,19 +85,20 @@
                 room.Smokers);
 
             TempData.AddSuccessMessage($"You successfully edit room {room.Name}");
-            return RedirectToAction(nameof(Create));
+            return RedirectToAction(nameof(Edit));
 
         }
 
         public async Task<IActionResult> AllRooms()
         {
             var roooms = await this.rooms.AllRooms();
+           
 
-            return View(new AllRoomsViewModel()
-            {
-                Rooms =roooms
+            return View(new AllRoomsViewModel {
+                Rooms=roooms
             });
             
+
         }
     }
 }

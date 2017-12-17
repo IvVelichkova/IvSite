@@ -11,7 +11,7 @@ namespace IvSite.Services
     {
         void Create(string name, CapacityRoom capacity, LuxStatus luxStatus, bool smoker);
 
-
+        EditRoomServiceModel FindToEdit(int Id);
         void Edit(int id, string name, CapacityRoom capacity, LuxStatus luxStatus, bool smoker);
 
         Task<IEnumerable<RoomsListingServiceModel>> AllRooms();

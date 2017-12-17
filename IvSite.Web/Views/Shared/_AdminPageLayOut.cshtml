@@ -1,0 +1,164 @@
+﻿@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Camera Bazar</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/Adminbootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/Adminbootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+        <div class="navbar-header">
+            <div class="navbar-header"><a class="navbar-brand" href="#">Brand</a></div>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse">
+            <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm">
+                <ul class="nav navbar-nav pull-right">
+                    <li> <a asp-area="Admin" asp-controller="Home" asp-action="AllUsers">All Users</a></li>
+                    <li>
+                        <a asp-area="Admin" asp-controller="Rooms" asp-action="AllRooms">All Rooms</a>
+                    </li>
+                    <li>
+                        <a asp-area="Admin" asp-controller="Rooms" asp-action="Create">New Room</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hello @UserManager.GetUserName(User)!<b class="caret"></b></a>
+
+                        <ul class="dropdown-menu">
+                            <li class="divider"></li>
+
+                            <li>
+                                <a asp-area="Admin" asp-controller="Home" asp-action="AllUsers">Users</a>
+                            </li>
+                            <li class="divider"></li>
+
+                            <li>
+                                <a asp-area="Admin" asp-controller="Rooms" asp-action="Create">New Room</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li class="divider"></li>
+                            <li>
+                                <button type="submit" class="btn btn-link navbar-btn navbar-link">Log out</button>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+    <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse">
+
+            <ul class="nav navbar-nav">
+                <li><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <button type="button" class="btn btn-default navbar-btn">Button</button>
+            <div class="col-sm-3 col-md-3 pull-right">
+                <div class="navbar-text">Text</div>
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="text-center">
+            <h1>Bootstrap Template</h1>
+            <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+        </div>
+        <div class="container body-content">
+
+            @if (TempData.ContainsKey(WebConstants.TempDataSuccess))
+            {
+                <div class="alert alert-success center-block align-content-md-center">
+                    @TempData[WebConstants.TempDataSuccess]
+                </div>
+            }
+            @RenderBody()
+
+            <hr />
+            <footer>
+                <p>&copy; 2017 - CameraBazar.Web</p>
+            </footer>
+        </div>
+
+    </div><!-- /.container -->
+
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+    @section Scripts {
+        @await Html.PartialAsync("_ValidationScriptsPartial")
+    }
+</body>
+</html>
