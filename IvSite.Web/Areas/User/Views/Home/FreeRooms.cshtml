@@ -1,0 +1,102 @@
+﻿@model BookingForm
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create Booking</h2>
+<form class="pure-form pure-form-stacked" method="post">
+    <fieldset>
+        <div class="pure-control-group">
+
+            <label for="startDate">Start Date</label>
+            <input type="date" id="startDate" name="StartDate" value="@Model.StartDate" />
+        </div>
+        <div class="pure-control-group">
+
+            <label for="endDate">End Date</label>
+            <input type="date" id="endDate" name="EndDate" value="@Model.EndDate" />
+        </div>
+        <div class="pure-control-group">
+
+            <button type="submit" class="pure-button pure-button-primary">Submit</button>
+        </div>
+    </fieldset>
+
+</form>
+
+@if (Model.Rooms.Any())
+{
+
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>
+                    id
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Capacity
+                </th>
+                <th>
+                    Lux Status
+                </th>
+                <th>
+                    Is for Smokers
+                </th>
+
+                <th>
+                    Note
+                </th>
+                <th>
+                    Make Booking
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var room in Model.Rooms)
+            {
+            <tr>
+                <th>
+                    @room.Id
+                </th>
+                <th>
+                    @room.Name
+                </th>
+                <th>
+                    @room.Capacity
+                </th>
+                <th>
+                    @room.LuxStatus
+                </th>
+                <th>
+                    @room.Smokers
+                </th>
+                <th>
+
+                    @room.Note
+                </th>
+                <th>
+                    <form asp-area="User" asp-controller="Room" asp-action="CreateBooking" method="post">
+                        <input name="StartDate" value="@Model.StartDate" hidden />
+                        <input name="EndDate" value="@Model.EndDate" hidden />
+                        <input name="RoomId" value="@room.Id" hidden />
+                        
+                        <button type="submit" class="pure-button pure-button-primary">Book</button>
+                        <input name="StartDate" value="@Model.StartDate.ToShortDateString()" />
+                        <input name="EndDate" value="@Model.EndDate.ToShortDateString()" />
+
+                    </form>
+                    @*<form asp-area="User" asp-controller="Rooms" asp-action="Delete" method="post">
+
+                        @Html.ActionLink("Delete", "Delete", new { id = room.Id })
+                    </form>
+            </th>*@
+            </tr>
+            }
+        </tbody>
+    </table>
+}

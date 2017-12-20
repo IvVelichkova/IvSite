@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace IvSite.Web.Extensions
 {
-    public class AdmiнCheckExtensions
+    public class AdminCheckExtensions
     {
     }
 }

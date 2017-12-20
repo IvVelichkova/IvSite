@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using IvSite.Data.Models.TypesRoom;
 using IvSite.Services.Admin.Models.Rooms;
 
-namespace IvSite.Services
+namespace IvSite.Services.Admin
 {
     public interface IRoomService
     {
@@ -14,6 +12,6 @@ namespace IvSite.Services
         EditRoomServiceModel FindToEdit(int Id);
         void Edit(int id, string name, CapacityRoom capacity, LuxStatus luxStatus, bool smoker);
 
-        Task<IEnumerable<RoomsListingServiceModel>> AllRooms();
+        Task<List<RoomsListingServiceModel>> AllRooms();
     }
 }

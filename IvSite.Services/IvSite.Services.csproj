@@ -9,4 +9,8 @@
     <ProjectReference Include="..\IvSite.Data\IvSite.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="HtmlSanitizer" Version="4.0.181" />
+  </ItemGroup>
+
 </Project>

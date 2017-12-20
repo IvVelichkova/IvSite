@@ -32,24 +32,23 @@
                     <img src="~/images/Logo.png" style="display: inline-block;">
                     <span style="display: inline-block;"></span>
                 </a>
-                @*<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>*@
+
             </div>
             <div class="pure-menu pure-menu-horizontal">
                 <ul class="nav navbar-nav navbar-left">
-                    @if (User.Identity.IsAuthenticated && !User.IsInRole(WebConstants.AdminRole))
-    {
-                <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                <li><a asp-area="" asp-controller="Home" asp-action="Index">Blog</a></li>
-                <li><a asp-area="" asp-controller="Home" asp-action="Index">Gallery</a></li>
-                <li><a asp-area="User" asp-controller="Home" asp-action="Create">Booking</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Gallery</a></li>
+                    <li><a asp-area="Blog" asp-controller="Home" asp-action="Index">Blog</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
 
-                <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-}
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li><a asp-area="User" asp-controller="Home" asp-action="FreeRooms">Free Rooms</a></li>
+                        @if (User.IsInRole(WebConstants.AuthorRole))
+                        {
+                            <li><a asp-area="Blog" asp-controller="Home" asp-action="Create">Create Article</a></li>
+                        }
+                    }
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>
@@ -102,10 +101,7 @@
 
 
                     }
-                    @*@if (User.IsInRole(WebConstants.AdminRole))
-                        {
-                            <a asp-area="Admin" asp-controller="Home" asp-action="AllUsers">Users</a>
-                        }*@
+
                 </div>
                 <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
                     <h4>Contact Us</h4>
@@ -132,20 +128,10 @@
     </div>
     <script src="~/js/SecounMenu.js"></script>
     <script src="~/js/nodeBase.js"></script>
-
-    @*<script>
-            // When the user scrolls down 20px from the top of the document, slide down the navbar
-            window.onscroll = function () { scrollFunction() };
-
-            function scrollFunction() {
-                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                    document.getElementById("navbar").style.top = "0";
-                } else {
-                    document.getElementById("navbar").style.top = "-50px";
-                }
-            }
-        </script>*@
     <div id="yui3-css-stamp" style="position: absolute !important; visibility: hidden !important"></div>
     @RenderSection("Scripts", required: false)
+    @section Scripts {
+        @await Html.PartialAsync("_ValidationScriptsPartial")
+    }
 </body>
 </html>

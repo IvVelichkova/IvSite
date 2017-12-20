@@ -3,7 +3,7 @@
     using System.Linq;
     using System.Threading.Tasks;
     using IvSite.Data.Models.Users;
-    using IvSite.Services;
+    using IvSite.Services.Admin;
     using IvSite.Web.Areas.Admin.Models.Users;
     using IvSite.Web.Extensions;
     using Microsoft.AspNetCore.Identity;

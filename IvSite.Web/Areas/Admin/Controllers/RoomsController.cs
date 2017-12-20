@@ -1,19 +1,16 @@
 ﻿namespace IvSite.Web.Areas.Admin.Controllers
 {
-    using System;
     using System.Threading.Tasks;
-    using IvSite.Data.Models.TypesRoom;
     using IvSite.Data.Models.Users;
     using IvSite.Services.Admin.Models.Rooms;
     using IvSite.Web.Areas.Admin.Models.Rooms;
     using Microsoft.AspNetCore.Identity;
+    using IvSite.Web.Extensions;
+    using IvSite.Services.Admin;
     using Microsoft.AspNetCore.Mvc;
-    using System.Linq;
 
     using static WebConstants;
-    using IvSite.Services;
-    using IvSite.Web.Extensions;
-    using Microsoft.AspNetCore.Mvc.Rendering;
+
 
     public class RoomsController : BaseController
     {
@@ -21,9 +18,7 @@
         private readonly IRoomService rooms;
         private readonly RoleManager<IdentityRole> roleManager;
 
-        //public const string RedirectToHome = $"\"Index""," "Home"", new { area = "" });");
-
-        public RoomsController(UserManager<User> userManager, IRoomService rooms,RoleManager<IdentityRole> roleManager)
+        public RoomsController(UserManager<User> userManager, IRoomService rooms, RoleManager<IdentityRole> roleManager)
         {
             this.userManager = userManager;
             this.rooms = rooms;
@@ -54,18 +49,18 @@
 
         public IActionResult Edit(int id)
         {
-            
+
             if (!User.IsInRole(AdminRole))
             {
                 return RedirectToAction("Index", "Home", new { area = "" });
             }
             var model = this.rooms.FindToEdit(id);
             return View(model);
-           
+
         }
 
         [HttpPost]
-        public IActionResult Edit(int id,EditRoomServiceModel room)
+        public IActionResult Edit(int id, EditRoomServiceModel room)
         {
             if (!ModelState.IsValid)
             {
@@ -75,8 +70,6 @@
             {
                 return RedirectToAction("Index", "Home", new { area = "" });
             }
-            
-
             this.rooms.Edit(
                 id,
                 room.Name,
@@ -85,19 +78,19 @@
                 room.Smokers);
 
             TempData.AddSuccessMessage($"You successfully edit room {room.Name}");
-            return RedirectToAction(nameof(Edit));
-
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
 
         public async Task<IActionResult> AllRooms()
         {
             var roooms = await this.rooms.AllRooms();
-           
 
-            return View(new AllRoomsViewModel {
-                Rooms=roooms
+
+            return View(new AllRoomsViewModel
+            {
+                Rooms = roooms
             });
-            
+
 
         }
     }

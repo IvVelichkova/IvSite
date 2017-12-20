@@ -16,8 +16,9 @@
                     Email
                 </th>
                 <th>
-                    Role
+                    Change Role
                 </th>
+                <th>Role</th>
             </tr>
         </thead>
 
@@ -48,6 +49,12 @@
                                 }
                             </div>
                         </form>
+                    </th>
+                    <th>
+                        @if (user.Role != null)
+                        {
+                            @user.Role
+                        }
                     </th>
                 </tr>
 

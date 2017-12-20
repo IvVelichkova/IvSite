@@ -25,27 +25,27 @@
                     <img src="~/images/Logo.png" style="display: inline-block;">
                     <span style="display: inline-block;"></span>
                 </a>
-                @*<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>*@
+
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-left">
-                    @if (User.Identity.IsAuthenticated && !User.IsInRole(WebConstants.AdminRole))
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Gallery</a></li>
+                    <li><a asp-area="Blog" asp-controller="Home" asp-action="Index">Blog</a></li>
+                    @if (User.Identity.IsAuthenticated )
                     {
                         <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                        <li><a asp-area="User" asp-controller="Home" asp-action="FreeRooms">Free Rooms</a></li>
 
-                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                        @if (User.IsInRole(WebConstants.AuthorRole))
+                        {
+                            <li><a asp-area="Blog" asp-controller="Home" asp-action="Create">Create Article</a></li>
+                        }
+                    }
+                    @*@if (User.IsInRole(WebConstants.AdminRole))
+                            {
+                                        @Html.Partial("~/Views/Shared/_AdminMenu.cshtml")
+                        }*@
 
-                    }
-                    @if (User.IsInRole(WebConstants.AdminRole))
-                    {
-                        @Html.Partial("~/Views/Shared/_AdminMenu.cshtml")
-                    }
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>
@@ -96,5 +96,8 @@
 
 
     @RenderSection("Scripts", required: false)
+    @section Scripts {
+        @await Html.PartialAsync("_ValidationScriptsPartial")
+    }
 </body>
 </html>

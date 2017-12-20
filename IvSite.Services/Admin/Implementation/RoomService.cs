@@ -51,10 +51,11 @@
             room.LuxStatus = luxStatus;
             room.Smoker = smoker;
 
+            this.db.Rooms.Update(room);
             this.db.SaveChanges();
         }
 
-        public async Task<IEnumerable<RoomsListingServiceModel>> AllRooms()
+        public async Task<List<RoomsListingServiceModel>> AllRooms()
         {
 
             var res=await this.db.Rooms.ProjectTo<RoomsListingServiceModel>().ToListAsync();

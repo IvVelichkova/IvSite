@@ -1,7 +1,18 @@
-﻿
+﻿@model ArticleListingViewModel
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Blog Articles";
 }
 
-<h2>Index</h2>
+<h2>@ViewData["Title"]</h2>
+<div class="row">
+    <div class="col-md-7">
+        <ul class="list-group" style="margin-bottom:25px">
 
+            @foreach (var art in Model.Articles)
+        {
+            <li class="list-group-item">@art.Title</li>
+
+}
+        </ul>
+    </div>
+</div>
