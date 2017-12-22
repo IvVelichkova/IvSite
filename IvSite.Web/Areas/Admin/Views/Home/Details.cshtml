@@ -2,10 +2,12 @@
 @{
     ViewData["Title"] = "Details";
 }
-
-<li class="list-group-item">
-    <h3> <strong> @Model.Titel</strong></h3>
-    <br />
-    <small> @Model.Content</small>
-</li>
-
+<div class="text-center" style=" text-align: center;">
+    <div class="row">
+        <div class="col-md-7">
+            <h4> @Model.Title</h4>
+            <br />
+            <small>@Html.Raw(Model.Content)</small>
+        </div>
+    </div>
+</div>

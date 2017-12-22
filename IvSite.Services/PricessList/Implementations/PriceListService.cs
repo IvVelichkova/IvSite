@@ -36,27 +36,11 @@ namespace IvSite.Services.Admin.Implementation
 
         public async Task<List<AdminCreatePriceListingServicemodel>> AllPriceList()
         {
-            var res = await this.db.PriceList.ProjectTo<AdminCreatePriceListingServicemodel>().ToListAsync();
+            var res = await this.db.PriceList.OrderByDescending(d => d.Id).ProjectTo<AdminCreatePriceListingServicemodel>().ToListAsync();
             return res;
         }
 
-        public AdminCreatePriceListingServicemodel FindToEdit(int Id)
-        => this.db.PriceList.Where(r => r.Id == Id).ProjectTo<AdminCreatePriceListingServicemodel>().FirstOrDefault();
-
-        public void EditPriceList(int id, string title, string content)
-        {
-
-            {
-
-                var price = this.db.PriceList.Find(id);
-
-                price.Title = title;
-                price.Content = content;
-
-                this.db.PriceList.Update(price);
-                this.db.SaveChanges();
-            }
-        }
+       
 
         public PriceListDetailsServiceModel ById(int id)
         {
@@ -75,7 +59,7 @@ namespace IvSite.Services.Admin.Implementation
             var model = this.db.PriceList.Where(i => i.Id == id).Select(s => new PriceListDetailsServiceModel
             {
                 Id = s.Id,
-                Titel = s.Title,
+                Title = s.Title,
                 Content = s.Content
                 
             }).FirstOrDefault();

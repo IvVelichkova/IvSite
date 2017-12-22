@@ -15,9 +15,9 @@ namespace IvSite.Services.PricessList.Models
 
         public string Content { get; set; }
 
-        public string Admin { get; set; }
-        public void ConfigureMapping(Profile mapper)
-        => mapper.CreateMap<PriceList, AdminCreatePriceListingServicemodel>()
-            .ForMember(a => a.Admin, cfg => cfg.MapFrom(a => a.Admin.UserName));
+        //public string Admin { get; set; }
+        //public void ConfigureMapping(Profile mapper)
+        //=> mapper.CreateMap<PriceList, AdminCreatePriceListingServicemodel>()
+        //    .ForMember(a => a.Admin, cfg => cfg.MapFrom(a => a.Admin.UserName));
     }
 }

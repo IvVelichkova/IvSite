@@ -10,7 +10,7 @@ namespace IvSite.Services.PricessList.Models
     {
         public int Id { get; set; }
 
-        public string Titel { get; set; }
+        public string Title { get; set; }
 
         public string Content { get; set; }
     }

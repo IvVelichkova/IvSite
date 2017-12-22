@@ -8,10 +8,8 @@ namespace IvSite.Services.Admin
     public interface IRoomService
     {
         void Create(string name, CapacityRoom capacity, LuxStatus luxStatus, bool smoker);
-
         EditRoomServiceModel FindToEdit(int Id);
-        void Edit(int id, string name, CapacityRoom capacity, LuxStatus luxStatus, bool smoker);
-
         Task<List<RoomsListingServiceModel>> AllRooms();
+        void Edit(EditRoomServiceModel model);
     }
 }

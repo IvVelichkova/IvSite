@@ -123,37 +123,7 @@
             return RedirectToAction("Index", "Home", new { area = "Admin" });
         }
 
-        public IActionResult EditPriceList(int id)
-        {
-
-            if (!User.IsInRole(AdminRole))
-            {
-                return RedirectToAction("Index", "Home", new { area = "Admin" });
-            }
-            var model = this.price.FindToEdit(id);
-            return View(model);
-
-        }
-        [HttpPost]
-        public IActionResult EditPriceList(int id, AdminCreatePriceListingServicemodel price)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View(price);
-            }
-            if (!User.IsInRole(AdminRole))
-            {
-                return RedirectToAction("Index", "Home", new { area = "" });
-            }
-            this.price.EditPriceList(
-                id,
-                price.Title,
-                price.Content
-               );
-
-            TempData.AddSuccessMessage($"You successfully edit Price List {price.Title}");
-            return RedirectToAction("Index", "Home", new { area = "Admin" });
-        }
+     
 
         public IActionResult DeletePriceList(int id)
         {

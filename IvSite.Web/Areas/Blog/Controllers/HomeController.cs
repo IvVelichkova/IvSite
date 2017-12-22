@@ -13,6 +13,7 @@
 
     [Area("Blog")]
     [Authorize(Roles = AuthorRole)]
+
     public class HomeController : Controller
     {
 
@@ -35,13 +36,15 @@
         });
 
 
-
+           [Authorize(Roles = AdminRole)]
         public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize(Roles = AdminRole)]
+
         public async Task<IActionResult> Create(CreateArticleFormModel model)
         {
             if (!ModelState.IsValid)

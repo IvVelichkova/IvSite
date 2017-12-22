@@ -52,7 +52,7 @@
 
             if (!User.IsInRole(AdminRole))
             {
-                return RedirectToAction("Index", "Home", new { area = "" });
+                return RedirectToAction("Index", "Home", new { area = "Admin" });
             }
             var model = this.rooms.FindToEdit(id);
             return View(model);
@@ -68,17 +68,13 @@
             }
             if (!User.IsInRole(AdminRole))
             {
-                return RedirectToAction("Index", "Home", new { area = "" });
+                return RedirectToAction("Index", "Home", new { area = "Admin" });
             }
             this.rooms.Edit(
-                id,
-                room.Name,
-                room.Capacity,
-                room.LuxStatus,
-                room.Smokers);
+               room);
 
             TempData.AddSuccessMessage($"You successfully edit room {room.Name}");
-            return RedirectToAction("Index", "Home", new { area = "" });
+            return RedirectToAction("Index", "Home", new { area = "Admin" });
         }
 
         public async Task<IActionResult> AllRooms()

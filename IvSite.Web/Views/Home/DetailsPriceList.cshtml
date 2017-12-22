@@ -6,9 +6,9 @@
 <div class="text-center" style=" text-align: center;">
     <div class="row">
         <div class="col-md-7">
-            <h4> @Model.Titel</h4>
+            <h4> @Model.Title</h4>
             <br />
-            <small>@Model.Content</small>
+            <small>@Html.Raw(Model.Content)</small>
         </div>
     </div>
 </div>

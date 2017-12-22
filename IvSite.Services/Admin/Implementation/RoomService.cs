@@ -41,15 +41,15 @@
 
 
 
-        public void Edit(int id, string name, CapacityRoom capacity, LuxStatus luxStatus, bool smoker)
+        public void Edit(EditRoomServiceModel model)
         {
 
-            var room = this.db.Rooms.Find(id);
+            var room = this.db.Rooms.Find(model.Id);
 
-            room.Name = name;
-            room.Capacity = capacity;
-            room.LuxStatus = luxStatus;
-            room.Smoker = smoker;
+            room.Name = model.Name;
+            room.Capacity = model.Capacity;
+            room.LuxStatus = model.LuxStatus;
+            room.Smoker = model.Smokers;
 
             this.db.Rooms.Update(room);
             this.db.SaveChanges();
