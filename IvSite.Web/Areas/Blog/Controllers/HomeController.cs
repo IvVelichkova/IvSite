@@ -30,21 +30,20 @@
         public async Task<IActionResult> Index(int page = 1)
         => View(new ArticleListingViewModel
         {
-            Articles = await this.blogArticle.AllArticlesAsync(page),
-            TotalArticles = await this.blogArticle.TotalAsync(),
-            Currentpage = page
+            Articles = await this.blogArticle.AllArticlesAsync(page)
+            //TotalArticles = await this.blogArticle.TotalAsync(),
+            //Currentpage = page
         });
 
 
-           [Authorize(Roles = AdminRole)]
+         //[Authorize(Roles = AdminRole)]
         public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
-        [Authorize(Roles = AdminRole)]
-
+        //[Authorize(Roles = AdminRole)]
         public async Task<IActionResult> Create(CreateArticleFormModel model)
         {
             if (!ModelState.IsValid)
@@ -54,7 +53,7 @@
             model.Content = this.html.Sanitize(model.Content);
             var userId = this.userManager.GetUserId(User);
             await this.blogArticle.CreateAsync(model.Title, model.Content, userId);
-            return RedirectToAction("Index", "Home", new { area = string.Empty });
+            return RedirectToAction("Index", "Home", new { area = "Blog" });
         }
     }
 }

@@ -65,6 +65,7 @@ namespace IvSite.Web.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
+                    Url.IsLocalUrl(returnUrl);
                     return RedirectToLocal(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
@@ -128,6 +129,7 @@ namespace IvSite.Web.Controllers
             if (result.Succeeded)
             {
                 _logger.LogInformation("User with ID {UserId} logged in with 2fa.", user.Id);
+                Url.IsLocalUrl(returnUrl);
                 return RedirectToLocal(returnUrl);
             }
             else if (result.IsLockedOut)
@@ -182,6 +184,7 @@ namespace IvSite.Web.Controllers
             if (result.Succeeded)
             {
                 _logger.LogInformation("User with ID {UserId} logged in with a recovery code.", user.Id);
+                Url.IsLocalUrl(returnUrl);
                 return RedirectToLocal(returnUrl);
             }
             if (result.IsLockedOut)
@@ -241,6 +244,7 @@ namespace IvSite.Web.Controllers
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     _logger.LogInformation("User created a new account with password.");
+                    Url.IsLocalUrl(returnUrl);
                     return RedirectToLocal(returnUrl);
                 }
                 AddErrors(result);
@@ -290,6 +294,7 @@ namespace IvSite.Web.Controllers
             if (result.Succeeded)
             {
                 _logger.LogInformation("User logged in with {Name} provider.", info.LoginProvider);
+                Url.IsLocalUrl(returnUrl);
                 return RedirectToLocal(returnUrl);
             }
             if (result.IsLockedOut)
@@ -328,6 +333,7 @@ namespace IvSite.Web.Controllers
                     {
                         await _signInManager.SignInAsync(user, isPersistent: false);
                         _logger.LogInformation("User created an account using {Name} provider.", info.LoginProvider);
+                        Url.IsLocalUrl(returnUrl);
                         return RedirectToLocal(returnUrl);
                     }
                 }
