@@ -29,22 +29,19 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-left">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Gallery</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="DetailsPriceList">PricesList</a></li>
                     <li><a asp-area="Blog" asp-controller="Home" asp-action="Index">Blog</a></li>
-                    @if (User.Identity.IsAuthenticated )
+                    @if (User.Identity.IsAuthenticated)
                     {
                         <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                         <li><a asp-area="User" asp-controller="Home" asp-action="FreeRooms">Free Rooms</a></li>
 
-                        @if (User.IsInRole(WebConstants.AuthorRole))
-                        {
-                            <li><a asp-area="Blog" asp-controller="Home" asp-action="Create">Create Article</a></li>
-                        }
+
                     }
-                    @*@if (User.IsInRole(WebConstants.AdminRole))
-                            {
-                                        @Html.Partial("~/Views/Shared/_AdminMenu.cshtml")
-                        }*@
+                    @if (User.IsInRole(WebConstants.AuthorRole))
+                    {
+                        <li><a asp-area="Blog" asp-controller="Home" asp-action="Create">Create Article</a></li>
+                    }
 
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")

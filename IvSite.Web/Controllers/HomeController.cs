@@ -5,11 +5,21 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using IvSite.Web.Models;
+using Microsoft.AspNetCore.Authorization;
+using IvSite.Services.Admin;
+using IvSite.Services.PricessList;
 
 namespace IvSite.Web.Controllers
 {
+
     public class HomeController : Controller
     {
+        private readonly IPriceListService price;
+
+        public HomeController(IPriceListService price)
+        {
+            this.price = price;
+        }
         public IActionResult Index()
         {
             return View();
@@ -33,5 +43,13 @@ namespace IvSite.Web.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        [AllowAnonymous]
+        public IActionResult DetailsPriceList()
+        {
+            var model = this.price.LastPriceListDetails();
+            return View(model);
+        }
+
     }
 }

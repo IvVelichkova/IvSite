@@ -27,5 +27,7 @@
         public List<Reservation> Reservations { get; set; } = new List<Reservation>();
 
         public List<Article> Articles { get; set; } = new List<Article>();
+
+        public List<PriceList> PriceList { get; set; } = new List<PriceList>();
     }
 }

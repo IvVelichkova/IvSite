@@ -8,9 +8,12 @@
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using IvSite.Data.Models.Users;
+    using static WebConstants;
 
 
-    public class HomeController : BaseController
+    [Area("Blog")]
+    [Authorize(Roles = AuthorRole)]
+    public class HomeController : Controller
     {
 
         private readonly IBlogArticleService blogArticle;

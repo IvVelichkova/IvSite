@@ -12,9 +12,10 @@ using System;
 namespace IvSite.Data.Migrations
 {
     [DbContext(typeof(IvSiteDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171221110057_PriceListForAdminTable")]
+    partial class PriceListForAdminTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

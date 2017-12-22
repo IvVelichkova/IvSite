@@ -1,6 +1,43 @@
-﻿@{
-    ViewData["Title"] = "Index";
+﻿@model IEnumerable<AdminCreatePriceListingServicemodel>
+@{
+    ViewData["Title"] = "All Price List";
 }
 
+<h2>@ViewData["Title"]</h2>
+<div class="row">
+    <div class="col-md-10">
+        <form asp-area="Admin" asp-controller="Home" method="post">
+            <ul class="list-group center-block" style="margin-bottom:25px">
+
+                @foreach (var art in Model)
+                {
+                    <li class="list-group-item">
+                        <h3> <strong> @art.Title</strong></h3>
+                        <br />
+                        <small> @art.Content</small>
+
+                        <div class="btn btn-group-lg">
+                        
+                            <button asp-action="EditPriceList" asp-route-id="@art.Id" type="submit" class="btn btn-primary">Edit</button>
+                            <button  asp-action="DeletePriceList"asp-route-id="@art.Id" type="submit" class="btn btn-primary">Delete</button>
+                          
+                            <button asp-action="Details" asp-route-id="@art.Id" type="submit" class="btn btn-primary">Details</button>
+                            <a asp-action="Index" class="btn btn-default">Cancel</a>
+
+                        </div>
+                        @*</div>
+                            <div class="btn btn-group-lg">
+                            </div>
+                            <div class="btn btn-group-lg">
+                                <button type="submit" class="btn btn-primary btn-group-lg">Delete </button>
+                            </div>*@
+                    </li>
+
+                }
+            </ul>
+        </form>
+
+    </div>
+</div>
 
 

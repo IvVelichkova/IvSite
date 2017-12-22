@@ -1,0 +1,18 @@
+﻿@model PriceListDetailsServiceModel
+@{
+    ViewData["Title"] = "DetailsPriceList";
+}
+
+<div class="text-center" style=" text-align: center;">
+    <div class="row">
+        <div class="col-md-7">
+            <h4> @Model.Titel</h4>
+            <br />
+            <small>@Model.Content</small>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

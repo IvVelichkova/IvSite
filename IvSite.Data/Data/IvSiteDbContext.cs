@@ -1,5 +1,6 @@
 ﻿namespace IvSite.Data
 {
+    using IvSite.Data.Models;
     using IvSite.Data.Models.Blog;
     using IvSite.Data.Models.Rooms;
     using IvSite.Data.Models.Users;
@@ -19,6 +20,8 @@
 
       public  DbSet<Article> Articles { get; set; }
 
+        public DbSet<PriceList> PriceList { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -37,6 +40,11 @@
                 .HasOne(u => u.Author)
                 .WithMany(ar => ar.Articles)
                 .HasForeignKey(a => a.AuthorId);
+
+            builder.Entity<PriceList>()
+                .HasOne(a => a.Admin)
+                .WithMany(p => p.PriceList)
+                .HasForeignKey(ad => ad.AdminId);
         }
     }
 }

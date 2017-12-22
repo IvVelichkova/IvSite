@@ -36,7 +36,7 @@
             </div>
             <div class="pure-menu pure-menu-horizontal">
                 <ul class="nav navbar-nav navbar-left">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Gallery</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="DetailsPriceList">Pricelist</a></li>
                     <li><a asp-area="Blog" asp-controller="Home" asp-action="Index">Blog</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
 
@@ -44,10 +44,11 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li><a asp-area="User" asp-controller="Home" asp-action="FreeRooms">Free Rooms</a></li>
-                        @if (User.IsInRole(WebConstants.AuthorRole))
-                        {
-                            <li><a asp-area="Blog" asp-controller="Home" asp-action="Create">Create Article</a></li>
-                        }
+
+                    }
+                    @if (User.IsInRole(WebConstants.AuthorRole))
+                    {
+                        <li><a asp-area="Blog" asp-controller="Home" asp-action="Create">Create Article</a></li>
                     }
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
