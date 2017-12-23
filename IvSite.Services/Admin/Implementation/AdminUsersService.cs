@@ -21,9 +21,7 @@
             return await this.db.Users.ProjectTo<AdminUsersListingServiceModel>().ToListAsync();
         }
 
-        
-        
-        
+                        
     }
 
 }
