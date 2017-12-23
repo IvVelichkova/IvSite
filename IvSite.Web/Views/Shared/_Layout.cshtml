@@ -32,19 +32,16 @@
                     <img src="~/images/Logo.png" style="display: inline-block;">
                     <span style="display: inline-block;"></span>
                 </a>
-
             </div>
             <div class="pure-menu pure-menu-horizontal">
                 <ul class="nav navbar-nav navbar-left">
                     <li><a asp-area="" asp-controller="Home" asp-action="DetailsPriceList">Pricelist</a></li>
                     <li><a asp-area="Blog" asp-controller="Home" asp-action="Index">Blog</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-
+                    @*<li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>*@
 
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li><a asp-area="User" asp-controller="Home" asp-action="FreeRooms">Free Rooms</a></li>
-
                     }
                     @if (User.IsInRole(WebConstants.AuthorRole))
                     {
@@ -61,13 +58,12 @@
             <p class="splash-subhead">
                 <h1 style="color:white">Welcome</h1>
             </p>
-            <p>
-                <a asp-area="Blog" asp-controller="Home" asp-action="Index"class="pure-button pure-button-primary">See Blog</a>
-                
 
-               
-            </p>
-            <p style="color:white">Scroll for Gallery</p>
+            @*<a asp-area="Blog" asp-controller="Home" asp-action="Index"class="pure-button pure-button-primary">See Blog</a>*@
+            <p><h1 style="color:white"> To</h1></p>
+            <p><h1 style="color:white"> Kaylaka Park Hotel</h1></p>
+            <p><h1 style="color:white">Iv Site</h1> </p>
+            @*<p style="color:white">Scroll for Gallery</p>*@
         </div>
     </div>
     <div class="content-wrapper">
@@ -79,46 +75,39 @@
                 </div>
             }
             @RenderBody()
-            <h2 class="content-head is-center">Excepteur sint occaecat cupidatat.</h2>
+            @*<h2 class="content-head is-center">Excepteur sint occaecat cupidatat.</h2>*@
         </div>
         <div class="ribbon l-box-lrg pure-g">
             <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
                 <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
-                    <h2 class="content-head content-head-ribbon">Laboris nisi ut aliquip.</h2>
+                    <h2 class="content-head content-head-ribbon"> Комплексът предлага на своите гости:</h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor.
+                        Четири луксозни апартамента,всеки разполагащ с
                     </p>
+                    <p> – тераса с панорамна гледка</p>
+                    <p> – собствен санитарен възел</p>
+                    <p> – цифрова телевизия</p>
+                    <p> – wi-fi</p>
+                    <p> Пет семейни самостоятелни къщи, разполагащи с</p>
+                    <p> – тераса с панорамна гледка</p>
+                    <p> – собствен санитарен възел</p>
+                    <p> – цифрова телевизия</p>
+                    <p> – wi-fi</p>
                 </div>
             </div>
         </div>
         <div class="content">
-            <h2 class="content-head is-center">Dolore magna aliqua. Uis aute irure.</h2>
+            @*<h2 class="content-head is-center">Dolore magna aliqua. Uis aute irure.</h2>*@
             <div class="pure-g">
-                @*<div class="l-box-lrg pure-u-1 pure-u-md-2-5">
-                    @if (!User.Identity.IsAuthenticated)
-                    {
-
-                        <a asp-area="" asp-controller="Account" asp-action="Login">Log In</a>
-
-
-                    }
-
-                </div>*@
                 <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
                     <h4>Contact Us</h4>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat.
+                        За допълнителна информация, запитвания за специални събития и резервации можете да ни намерите в град Плевен, парк Кайлъка или да ни потърсите на T:  +359 64 800 776
+                        E-mail: vila_kailuka@abv.bg
                     </p>
                     <h4>More Information</h4>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua.
+                        <iframe style="border: 0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1450.4673030174126!2d24.63455417004379!3d43.35747845806616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDIxJzI2LjkiTiAyNMKwMzgnMDcuMyJF!5e0!3m2!1sbg!2sbg!4v1472195681404" width="600" height="450" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
                     </p>
                 </div>
             </div>
