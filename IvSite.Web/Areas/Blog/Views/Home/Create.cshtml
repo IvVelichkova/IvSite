@@ -2,7 +2,8 @@
 @{
     ViewData["Title"] = "Create Article";
 }
-
+<hr />
+<br />
 <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
 <script>tinymce.init({ selector: '#Content' });</script>
 <h2> @ViewData["Title"]</h2>
@@ -10,8 +11,8 @@
 <h3>This Demo Use Sanitizer</h3>
 <div class="row">
     <div class="col-md-10">
-        <form  method="post">
-          
+        <form method="post">
+
             <div asp-validation-summary="All" class="text-danger"></div>
 
             <div class="form-group">

@@ -11,7 +11,7 @@
         PriceListDetailsServiceModel ById(int id);
         PriceListDetailsServiceModel LastPriceListDetails();
         AdminCreatePriceListingServicemodel FindToDelete(int Id);
-        void DeletePriceList(int id, string title, string content);
+        void DeletePriceListService(int id, string title, string content);
 
 
     }

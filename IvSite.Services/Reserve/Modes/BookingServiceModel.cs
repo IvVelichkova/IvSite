@@ -1,5 +1,4 @@
-﻿
-namespace IvSite.Services.Reserve.Modes
+﻿namespace IvSite.Services.Reserve.Modes
 {
     using System;
     using System.ComponentModel.DataAnnotations;

@@ -42,6 +42,65 @@ namespace IvSite.Data.Migrations
                     b.ToTable("Articles");
                 });
 
+            modelBuilder.Entity("IvSite.Data.Models.Gallery.Album", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("AuthorId");
+
+                    b.Property<string>("Title")
+                        .HasMaxLength(50);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AuthorId");
+
+                    b.ToTable("Albums");
+                });
+
+            modelBuilder.Entity("IvSite.Data.Models.Gallery.Comment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Content")
+                        .HasMaxLength(6000);
+
+                    b.Property<int>("PhotoId");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PhotoId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Comments");
+                });
+
+            modelBuilder.Entity("IvSite.Data.Models.Gallery.Photo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("AlbumId");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasMaxLength(2083);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AlbumId");
+
+                    b.ToTable("Photos");
+                });
+
             modelBuilder.Entity("IvSite.Data.Models.PriceList", b =>
                 {
                     b.Property<int>("Id")
@@ -282,6 +341,34 @@ namespace IvSite.Data.Migrations
                     b.HasOne("IvSite.Data.Models.Users.User", "Author")
                         .WithMany("Articles")
                         .HasForeignKey("AuthorId");
+                });
+
+            modelBuilder.Entity("IvSite.Data.Models.Gallery.Album", b =>
+                {
+                    b.HasOne("IvSite.Data.Models.Users.User", "Author")
+                        .WithMany("Albums")
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("IvSite.Data.Models.Gallery.Comment", b =>
+                {
+                    b.HasOne("IvSite.Data.Models.Gallery.Photo", "Photo")
+                        .WithMany("Comments")
+                        .HasForeignKey("PhotoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("IvSite.Data.Models.Users.User", "User")
+                        .WithMany("Comments")
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("IvSite.Data.Models.Gallery.Photo", b =>
+                {
+                    b.HasOne("IvSite.Data.Models.Gallery.Album", "Album")
+                        .WithMany("Photos")
+                        .HasForeignKey("AlbumId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("IvSite.Data.Models.PriceList", b =>

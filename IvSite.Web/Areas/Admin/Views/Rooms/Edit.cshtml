@@ -2,27 +2,13 @@
 
 
 <div class="form-horizontal">
-    @*<div class="form-group">*@
         <form method="post">
             <h4></h4>
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <div class="form-group-lg form-text">
-                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                @await Html.PartialAsync("_RoomEditDeletePartial")
 
-
-                    <label asp-for="Capacity"></label>
-                    <select class="form-control" asp-for="Capacity" asp-items="Html.GetEnumSelectList<CapacityRoom>()"></select>
-                    <label asp-for="LuxStatus"></label>
-                    <select class="form-control" asp-for="LuxStatus" asp-items="Html.GetEnumSelectList<LuxStatus>()"></select>
-                    <div class="checkbox" id="Smokers">
-                        <label asp-for="Smokers"></label>
-                        @Html.RadioButtonFor(m => m.Smokers, true) Yes
-                        @Html.RadioButtonFor(m => m.Smokers, false) No
-                        <span asp-validation-for="Smokers" class="text-danger"></span>
-                    </div>
-                </div>
                 <div class="form-group">
                     <div class="btn btn-group-lg">
                         <button type="submit" class="btn btn-primary btn-group-lg">Edit Room</button>
@@ -31,7 +17,6 @@
             </div>
         </form>
     </div>
-@*</div>*@
 
 
 

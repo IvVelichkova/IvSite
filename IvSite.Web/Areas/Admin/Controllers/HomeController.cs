@@ -4,31 +4,22 @@
     using System.Threading.Tasks;
     using IvSite.Data.Models.Users;
     using IvSite.Services.Admin;
-    using IvSite.Services.Admin.Models;
-    using IvSite.Services.Blog;
     using IvSite.Services.HtmlSanitaizer;
     using IvSite.Services.PricessList;
     using IvSite.Services.PricessList.Models;
-    using IvSite.Services.Reserve;
-    using IvSite.Services.User;
     using IvSite.Web.Areas.Admin.Models.Users;
-    using IvSite.Web.Areas.Blog.Models;
     using IvSite.Web.Extensions;
-    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.EntityFrameworkCore;
     using static IvSite.Web.WebConstants;
+    using static IvSite.Web.WebHelper;
 
 
     public class HomeController : BaseController
     {
         private readonly IAdminUsersService users;
-        //private readonly IUserService user;
-        //private readonly IRoomService rooms;
-        //private readonly IReserveService reserve;
-        //private readonly IBlogArticleService blogArticle;
         private readonly IHtmlSanitizerService html;
         private readonly IPriceListService price;
 
@@ -79,17 +70,19 @@
 
             if (!roleExists || !userExists)
             {
-                ModelState.TryAddModelError(string.Empty, "Invalid Identity details");
+                ModelState.TryAddModelError(string.Empty, InvalidIdentityDetails);
             }
 
 
             if (!ModelState.IsValid)
             {
+                TempData.AddErrorMessage(ErrorModelState());
                 return RedirectToAction(nameof(AllUsers));
             }
             await this.userManager.AddToRoleAsync(user, model.Role);
+            var userName = user.FirstName;
 
-            TempData.AddSuccessMessage($"User {user.UserName} successfully added  to {model.Role} role.");
+            TempData.AddSuccessMessage(UserAddedSuccessFullToRole(userName, model.Role));
             return RedirectToAction(nameof(AllUsers));
         }
 
@@ -111,26 +104,28 @@
         {
             if (!ModelState.IsValid)
             {
-                TempData.AddSuccessMessage($"ModelState was not valid!");
-                return RedirectToAction("Index", "Home", new { area = "Admin" });
+                TempData.AddErrorMessage(ErrorModelState());
+                return RedirectToAction(IndexAction, HomeControllerConst, new { area = AdminArea });
             }
 
             priceList.Content = this.html.Sanitize(priceList.Content);
 
             var userId = userManager.GetUserId(User);
-            this.price.CreatePriceListAsync(priceList.Title, priceList.Content, userId);
-            TempData.AddSuccessMessage($"You successfully Create New Price List {priceList.Title}");
-            return RedirectToAction("Index", "Home", new { area = "Admin" });
+            this.price
+                .CreatePriceListAsync(priceList.Title, priceList.Content, userId);
+            TempData
+                .AddSuccessMessage(SuccessfullCreatePriceList(priceList.Title));
+            return RedirectToAction(IndexAction, HomeControllerConst, new { area = AdminArea });
         }
 
-     
+
 
         public IActionResult DeletePriceList(int id)
         {
 
             if (!User.IsInRole(AdminRole))
             {
-                return RedirectToAction("Index", "Home", new { area = "" });
+                return RedirectToAction(HomeIndex);
             }
             var model = this.price.FindToDelete(id);
             return View(model);
@@ -141,20 +136,21 @@
         {
             if (!ModelState.IsValid)
             {
+                TempData.AddErrorMessage(ErrorModelState());
                 return View(price);
             }
             if (!User.IsInRole(AdminRole))
             {
-                return RedirectToAction("Index", "Home", new { area = "Admin" });
+                return RedirectToAction(HomeIndex);
             }
-            this.price.DeletePriceList(
+            this.price.DeletePriceListService(
                 id,
                 price.Title,
                 price.Content
                );
 
-            TempData.AddSuccessMessage($"You successfully Delete Price List {price.Title}");
-            return RedirectToAction("Index", "Home", new { area = "Admin" });
+            TempData.AddSuccessMessage(SuccessfullDeletePriceList(price.Title));
+            return RedirectToAction(IndexAction, HomeControllerConst, new { area = AdminArea });
         }
         public IActionResult Details(int id)
         {

@@ -4,6 +4,7 @@
     using AutoMapper;
     using System.Linq;
     using IvSite.Core.Mapping;
+    using static WebConstants;
 
     public class AutoMapperProfile : Profile
     {
@@ -13,7 +14,7 @@
             var allTypes = AppDomain
                 .CurrentDomain
                 .GetAssemblies()
-                .Where(a => a.GetName().Name.Contains("IvSite"))
+                .Where(a => a.GetName().Name.Contains(IvSite))
                 .SelectMany(a => a.GetTypes());
 
             allTypes

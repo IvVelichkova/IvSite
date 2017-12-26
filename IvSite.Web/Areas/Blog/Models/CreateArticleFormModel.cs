@@ -7,10 +7,11 @@
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(MaxLenTitle)]
+        [StringLength(MaxLenTitle, MinimumLength = MinLenTitle)]
         public string Title { get; set; }
 
         [Required]
+        [StringLength(MaxContentLen, MinimumLength = MinContentLen)]
         public string Content { get; set; }
 
     }

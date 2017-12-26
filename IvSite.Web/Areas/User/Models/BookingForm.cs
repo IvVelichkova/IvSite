@@ -23,12 +23,12 @@
         {
             if (this.StartDate < DateTime.UtcNow)
             {
-                yield return new ValidationResult("Start Date should be in future.");
+                yield return new ValidationResult(StartDateShouldBeInFuture);
             }
 
             if (this.StartDate >this.EndDate)
             {
-                yield return new ValidationResult("Start Date should be before End Date.");
+                yield return new ValidationResult(StartDateShouldBeBeforeEndDate);
             }
         }
     }

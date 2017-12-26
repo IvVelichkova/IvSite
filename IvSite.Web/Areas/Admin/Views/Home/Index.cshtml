@@ -3,14 +3,15 @@
     ViewData["Title"] = "All Price List";
 }
 
+<hr />
+<br />
 <h2>@ViewData["Title"]</h2>
 <div class="row">
     <div class="col-md-10">
-        <form asp-area="Admin" asp-controller="Home" method="post">
-            <ul class="list-group center-block" style="margin-bottom:25px">
+        <ul class="list-group center-block" style="margin-bottom:25px">
 
-                @foreach (var art in Model)
-                {
+            @foreach (var art in Model)
+            {
                 <li class="list-group-item">
                     <h3> <strong> @art.Title</strong></h3>
                     <br />
@@ -18,24 +19,19 @@
 
                     <div class="btn btn-group-lg">
 
+                        <form asp-area="Admin">
+                            <button asp-action="DeletePriceList" asp-route-id="@art.Id" type="submit" class="btn btn-danger btn-group-lg">Delete</button>
 
-                        <button asp-action="DeletePriceList" asp-route-id="@art.Id" type="submit" class="btn btn-primary">Delete</button>
 
-                        <button asp-action="Details" asp-route-id="@art.Id" type="submit" class="btn btn-primary">Details</button>
-                        <a asp-action="Index" class="btn btn-default">Cancel</a>
+                            <button asp-action="Details" asp-route-id="@art.Id" type="submit" class="btn btn-primary btn-group-lg">Details</button>
 
+                        </form>
                     </div>
-                    @*</div>
-        <div class="btn btn-group-lg">
-        </div>
-        <div class="btn btn-group-lg">
-            <button type="submit" class="btn btn-primary btn-group-lg">Delete </button>
-        </div>*@
+
                 </li>
 
-                }
-            </ul>
-        </form>
+            }
+        </ul>
 
     </div>
 </div>

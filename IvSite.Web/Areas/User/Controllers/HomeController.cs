@@ -6,7 +6,10 @@
     using IvSite.Services.Reserve;
     using IvSite.Services.User;
     using IvSite.Web.Areas.Users.Models;
+    using IvSite.Web.Extensions;
     using Microsoft.AspNetCore.Mvc;
+    using static WebConstants;
+    using static WebHelper;
 
     public class HomeController:BaseController
     {
@@ -27,6 +30,10 @@
         [HttpPost]
         public IActionResult Create(int id)
         {
+            if (!ModelState.IsValid)
+            {
+                TempData.AddErrorMessage(ErrorModelState());
+            }
             return View();
         }
         public async Task<IActionResult> BookingForm()

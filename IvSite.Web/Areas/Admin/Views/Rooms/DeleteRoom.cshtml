@@ -1,0 +1,40 @@
+﻿@model EditRoomServiceModel
+
+<hr />
+<br />
+<div class="form-horizontal">
+
+    <form asp-area="Admin" asp-controller="Rooms" method="post">
+        <h4>Are you sure you want to delete this Room?</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            @await Html.PartialAsync("_RoomEditDeletePartial")
+
+            <div class="form-group">
+                <div class="btn btn-group-lg">
+                    <button type="submit" class="btn btn-danger btn-group-lg">Delete</button>
+
+                </div>
+                <div class="btn btn-group-lg">
+                    <a asp-action="Edit"></a>
+
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+
+                </div>
+                <div class="btn btn-group-lg">
+
+                    <a asp-action="Index" class="btn btn-default">Cancel</a>
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+

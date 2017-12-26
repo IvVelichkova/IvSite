@@ -2,7 +2,8 @@
 @{
     ViewData["Title"] = "Index";
 }
-
+<hr />
+<br />
 <h1>@ViewData["Title"]</h1>
 
 <div class="pure-g">
@@ -25,7 +26,6 @@
         <tbody>
             @foreach (var user in Model.Users)
             {
-
                 <tr>
                     <th>
                         @user.FirstName
@@ -50,12 +50,14 @@
                             </div>
                         </form>
                     </th>
-                    <th>
-                        @if (user.Role != null)
-                        {
+                    @if (user.Role != null)
+                    {
+                        <th>
+
                             @user.Role
-                        }
-                    </th>
+                        </th>
+
+                    }
                 </tr>
 
             }

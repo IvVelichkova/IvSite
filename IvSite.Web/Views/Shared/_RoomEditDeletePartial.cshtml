@@ -1,0 +1,17 @@
+﻿@model EditRoomServiceModel
+
+<div class="form-group-lg form-text">
+    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+
+
+    <label asp-for="Capacity"></label>
+    <select class="form-control" asp-for="Capacity" asp-items="Html.GetEnumSelectList<CapacityRoom>()"></select>
+    <label asp-for="LuxStatus"></label>
+    <select class="form-control" asp-for="LuxStatus" asp-items="Html.GetEnumSelectList<LuxStatus>()"></select>
+    <div class="checkbox" id="Smokers">
+        <label asp-for="Smokers"></label>
+        @Html.RadioButtonFor(m => m.Smokers, true) Yes
+        @Html.RadioButtonFor(m => m.Smokers, false) No
+        <span asp-validation-for="Smokers" class="text-danger"></span>
+    </div>
+</div>

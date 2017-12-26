@@ -2,9 +2,10 @@
 {
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
+    using static WebConstants;
 
-    [Area("Admin")]
-    [Authorize(Roles = WebConstants.AdminRole)]
+    [Area(AdminArea)]
+    [Authorize(Roles = AdminRole)]
     public class BaseController:Controller
     {
 

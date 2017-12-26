@@ -2,7 +2,8 @@
 @{
     ViewData["Title"] = "AllRooms";
 }
-
+<hr />
+<br />
 <div class="pure-g">
     <table class="table table-bordered table-hover">
         <thead>
@@ -31,34 +32,34 @@
         <tbody>
             @foreach (var room in Model.Rooms)
             {
-            <tr>
-                <th>
-                    @room.Id
-                </th>
-                <th>
-                    @room.Name
-                </th>
-                <th>
-                    @room.Capacity
-                </th>
-                <th>
-                    @room.LuxStatus
-                </th>
-                <th>
-                    @room.Smokers
-                </th>
-                <th>
-                    <form asp-area="Admin" asp-controller="Rooms" asp-action="Edit" method="post">
+                <tr>
+                    <th>
+                        @room.Id
+                    </th>
+                    <th>
+                        @room.Name
+                    </th>
+                    <th>
+                        @room.Capacity
+                    </th>
+                    <th>
+                        @room.LuxStatus
+                    </th>
+                    <th>
+                        @room.Smokers
+                    </th>
+                    <th>
+                        <form asp-area="Admin" asp-controller="Rooms" asp-action="Edit" method="post">
 
-                        @Html.ActionLink("Edit", "Edit", new { id = room.Id }) |
+                            @Html.ActionLink("Edit", "Edit", new { id = room.Id }) |
 
-                    </form>
-                    <form asp-area="Admin" asp-controller="Rooms" asp-action="Delete" method="post">
+                        </form>
+                        <form asp-area="Admin" asp-controller="Rooms" asp-action="DeleteRoom" method="post">
 
-                        @Html.ActionLink("Delete", "Delete", new { id = room.Id })
-                    </form>
-                </th>
-            </tr>
+                            @Html.ActionLink("Delete", "DeleteRoom", new { id = room.Id })
+                        </form>
+                    </th>
+                </tr>
             }
         </tbody>
     </table>

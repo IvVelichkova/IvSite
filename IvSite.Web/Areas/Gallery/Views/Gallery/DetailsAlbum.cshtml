@@ -1,0 +1,44 @@
+﻿@model DetailsAlbumServiceModel
+@{
+    ViewData["Title"] = "Gallery";
+}
+
+@*<h2>@ViewData["Title"]</h2>*@
+<hr />
+<br />
+
+<div class="container">
+    <div class="row">
+        <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h1 class="gallery-title">Gallery</h1>
+        </div>
+
+        <div align="center">
+            <h1>@Model.Title</h1>
+        </div>
+        <br>
+
+        @foreach (var m in Model.Photos)
+        {
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                @*<img src="@m.Url" class="img-responsive"alt="@m.Name">*@
+                <<div class="row">
+                    <div class="col-md-3">
+                        <!-- IMAGE (@m.Url) SHOULD SHOW IF mediaType is news -->
+                        Image
+                    </div>
+                    <div class="col-md-9">
+                        <h2><a href="@m.Url">@m.Url</a></h2>
+
+                        <p><a href="@m.Url">Read more</a></p>
+                    </div>
+                </div>
+            </div>
+
+        }
+
+    </div>
+</div>
+
+
+

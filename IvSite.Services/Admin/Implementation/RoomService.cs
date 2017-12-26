@@ -1,6 +1,5 @@
 ﻿namespace IvSite.Services.Admin.Implementation
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -8,8 +7,8 @@
     using IvSite.Data;
     using IvSite.Data.Models.Rooms;
     using IvSite.Data.Models.TypesRoom;
-    using IvSite.Services.Admin.Models;
     using IvSite.Services.Admin.Models.Rooms;
+    using IvSite.Services.Reserve;
     using Microsoft.EntityFrameworkCore;
 
     public class RoomService : IRoomService
@@ -20,6 +19,7 @@
         {
             this.db = db;
         }
+
 
         public void Create(string name, CapacityRoom capacity, LuxStatus luxStatus, bool smoker)
         {
@@ -36,7 +36,7 @@
         }
 
 
-        public  EditRoomServiceModel FindToEdit(int Id) => this.db.Rooms.Where(r => r.Id == Id).ProjectTo<EditRoomServiceModel>().FirstOrDefault();
+        public  EditRoomServiceModel FindToEdit(int Id) => this.db.Rooms.Where(r => r.Id == Id).ProjectTo<EditRoomServiceModel>().SingleOrDefault();
        
 
 
@@ -63,7 +63,20 @@
 
         }
 
+        public void DeleteRoomService(EditRoomServiceModel model)
+        {
 
+            var room = this.db.Rooms.Find(model.Id);
+            var reservations = this.db.Reserve.Where(r => r.RoomId == model.Id);
+          
+            this.db.Rooms.Remove(room);
+            this.db.SaveChangesAsync();
+        }
+
+        public void AllReservations()
+        {
+            
+        }
     }
 }
 

@@ -9,9 +9,10 @@
     using Microsoft.AspNetCore.Mvc;
     using IvSite.Data.Models.Users;
     using static WebConstants;
+    using static WebHelper;
+    using IvSite.Web.Extensions;
 
-
-    [Area("Blog")]
+    [Area(BlogArea)]
     [Authorize(Roles = AuthorRole)]
 
     public class HomeController : Controller
@@ -48,12 +49,13 @@
         {
             if (!ModelState.IsValid)
             {
+                TempData.AddErrorMessage(ErrorModelState());
                 return View(model);
             }
             model.Content = this.html.Sanitize(model.Content);
             var userId = this.userManager.GetUserId(User);
             await this.blogArticle.CreateAsync(model.Title, model.Content, userId);
-            return RedirectToAction("Index", "Home", new { area = "Blog" });
+            return RedirectToAction(IndexAction, HomeControllerConst, new { area = BlogArea });
         }
     }
 }

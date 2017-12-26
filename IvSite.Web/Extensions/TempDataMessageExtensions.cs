@@ -10,5 +10,9 @@
         {
             tempData[TempDataSuccess] = message;
         }
+        public static void AddErrorMessage(this ITempDataDictionary tempData, string message)
+        {
+            tempData[TempDateError] = message;
+        }
     }
 }

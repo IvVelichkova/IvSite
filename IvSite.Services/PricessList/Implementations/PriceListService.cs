@@ -1,16 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper.QueryableExtensions;
-using IvSite.Data;
-using IvSite.Data.Models;
-using IvSite.Services.PricessList;
-using IvSite.Services.PricessList.Models;
-using Microsoft.EntityFrameworkCore;
-
-
-namespace IvSite.Services.Admin.Implementation
+﻿namespace IvSite.Services.Admin.Implementation
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using AutoMapper.QueryableExtensions;
+    using IvSite.Data;
+    using IvSite.Data.Models;
+    using IvSite.Services.PricessList;
+    using IvSite.Services.PricessList.Models;
+    using Microsoft.EntityFrameworkCore;
+
     public class PriceListService : IPriceListService
     {
         private readonly IvSiteDbContext db;
@@ -48,7 +47,7 @@ namespace IvSite.Services.Admin.Implementation
                .PriceList
                .Where(a => a.Id == id)
                .ProjectTo<PriceListDetailsServiceModel>()
-               .FirstOrDefault();
+               .SingleOrDefault();
         }
 
 
@@ -70,7 +69,7 @@ namespace IvSite.Services.Admin.Implementation
         public AdminCreatePriceListingServicemodel FindToDelete(int Id)
         => this.db.PriceList.Where(r => r.Id == Id).ProjectTo<AdminCreatePriceListingServicemodel>().FirstOrDefault();
 
-        public void DeletePriceList(int id, string title, string content)
+        public void DeletePriceListService(int id, string title, string content)
         {
 
             {

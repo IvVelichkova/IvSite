@@ -3,6 +3,8 @@
     ViewData["Title"] = "Blog Articles";
 }
 
+<hr />
+<br />
 <h2>@ViewData["Title"]</h2>
 
 <div class="row">
@@ -11,11 +13,11 @@
 
             @foreach (var art in Model.Articles)
             {
-            <li class="list-group-item">
-                <h3> <strong> @art.Title</strong></h3>
-                <br />
-                <small>@Html.Raw(art.Content)</small>
-            </li>
+                <li class="list-group-item">
+                    <h3> <strong> @art.Title</strong></h3>
+                    <br />
+                    <small>@Html.Raw(art.Content)</small>
+                </li>
             }
         </ul>
     </div>

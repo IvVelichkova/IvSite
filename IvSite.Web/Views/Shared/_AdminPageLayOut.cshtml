@@ -117,12 +117,20 @@
             <h1>Admin Panel</h1>
             @*<p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>*@
         </div>
-        <div class="container body-content">
+    </div>
+    <div class="container body-content">
 
+        <div class="container body-content">
             @if (TempData.ContainsKey(WebConstants.TempDataSuccess))
             {
                 <div class="alert alert-success center-block align-content-md-center">
                     @TempData[WebConstants.TempDataSuccess]
+                </div>
+            }
+            @if (TempData.ContainsKey(WebConstants.TempDateError))
+            {
+                <div class="alert alert-danger center-block align-content-md-center">
+                    @TempData[WebConstants.TempDateError]
                 </div>
             }
             @RenderBody()

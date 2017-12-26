@@ -2,12 +2,19 @@
 @{
     ViewData["Title"] = "Details";
 }
-<div class="text-center" style=" text-align: center;">
-    <div class="row">
-        <div class="col-md-7">
+<hr />
+<br />
+<div class="row">
+    <div class="col-md-10">
+        <div class="list-group center-block" style="margin-bottom:25px">
             <h4> @Model.Title</h4>
             <br />
             <small>@Html.Raw(Model.Content)</small>
+            <div class="btn btn-group-lg">
+                <form asp-area="Admin" asp-controller="Home">
+                    <button asp-action="Index" class="btn btn-group-lg">Cancel</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>

@@ -1,18 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using AutoMapper;
-using IvSite.Core.Mapping;
-using IvSite.Data.Models;
-
-namespace IvSite.Services.PricessList.Models
+﻿namespace IvSite.Services.PricessList.Models
 {
-   public class AdminCreatePriceListingServicemodel:IMapFrom<PriceList>
+    using System.ComponentModel.DataAnnotations;
+    using IvSite.Core.Mapping;
+    using IvSite.Data.Models;
+    using static IvSite.Data.DataConstants;
+
+    public class AdminCreatePriceListingServicemodel:IMapFrom<PriceList>
     {
         public int Id { get; set; }
-
+        [StringLength(MaxLenTitle, MinimumLength = MinLenTitle)]
         public string Title { get; set; }
-
+        [StringLength(MaxContentLen, MinimumLength = MinContentLen)]
         public string Content { get; set; }
 
         //public string Admin { get; set; }

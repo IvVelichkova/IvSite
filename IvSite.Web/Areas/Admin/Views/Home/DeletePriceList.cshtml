@@ -1,0 +1,40 @@
+﻿@model AdminCreatePriceListingServicemodel
+
+<hr />
+<br />
+<div class="row">
+    <div class="col-md-10">
+
+        <h4>Are you sure you want to delete this PriceList?</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Content"></label>
+                <textarea asp-for="Content" rows="100" class="form-control"></textarea>
+                <span asp-validation-for="Content" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="btn btn-group-lg">
+                    <form asp-area="Admin" asp-controller="Home" asp-action="Edit" method="post">
+
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+
+                    </form>
+                    <form asp-area="Admin" asp-controller="Home" asp-action="DeletePriceList" method="post">
+
+                        @Html.ActionLink("Delete", "DeletePriceList", new { id = Model.Id })
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

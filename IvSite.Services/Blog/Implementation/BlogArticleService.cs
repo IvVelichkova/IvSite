@@ -1,14 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper.QueryableExtensions;
-using IvSite.Data;
-using IvSite.Data.Models.Blog;
-using IvSite.Services.Blog.Models;
-using Microsoft.EntityFrameworkCore;
-
-namespace IvSite.Services.Blog.Implementation
+﻿namespace IvSite.Services.Blog.Implementation
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using AutoMapper.QueryableExtensions;
+    using IvSite.Data;
+    using IvSite.Data.Models.Blog;
+    using IvSite.Services.Blog.Models;
+    using Microsoft.EntityFrameworkCore;
+
     public class BlogArticleService : IBlogArticleService
     {
         private readonly IvSiteDbContext db;

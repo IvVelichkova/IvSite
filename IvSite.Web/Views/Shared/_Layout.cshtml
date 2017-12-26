@@ -45,7 +45,11 @@
                     }
                     @if (User.IsInRole(WebConstants.AuthorRole))
                     {
-                        <li><a asp-area="Blog" asp-controller="Home" asp-action="Create">Create Article</a></li>
+                        <li><a asp-area="Blog" asp-controller="Home" asp-action="Create">Create Blog Article Article</a></li>
+                        <li><a asp-area="Gallery" asp-controller="Gallery" asp-action="Index">Albums</a></li>
+
+
+                        <li><a asp-area="Gallery" asp-controller="Gallery" asp-action="CreateAlbum">Create Album</a></li>
                     }
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
@@ -72,6 +76,12 @@
             {
                 <div class="alert alert-success center-block align-content-md-center">
                     @TempData[WebConstants.TempDataSuccess]
+                </div>
+            }
+            @if (TempData.ContainsKey(WebConstants.TempDateError))
+            {
+                <div class="alert alert-danger center-block align-content-md-center">
+                    @TempData[WebConstants.TempDateError]
                 </div>
             }
             @RenderBody()

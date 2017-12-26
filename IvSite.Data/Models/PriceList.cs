@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
-using IvSite.Data.Models.Users;
-
-namespace IvSite.Data.Models
+﻿namespace IvSite.Data.Models
 {
-   public  class PriceList
+    using System.ComponentModel.DataAnnotations;
+    using IvSite.Data.Models.Users;
+
+    public  class PriceList
     {
         public int Id { get; set; }
 
