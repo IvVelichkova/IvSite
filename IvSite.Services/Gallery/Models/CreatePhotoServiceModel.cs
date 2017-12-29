@@ -9,11 +9,14 @@
 
     public class CreatePhotoServiceModel:IMapFrom<Photo>
     {
+        public int Id { get; set;  }
+
         [MaxLength(MaxLenghtName)]
         public string Name { get; set; }
         [Required]
         [MaxLength(MaxLenUrl)]
         [MinLength(MinLenUrl)]
+        
         public string Url { get; set; }
 
         public int AlbumId { get; set; }

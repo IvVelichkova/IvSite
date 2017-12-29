@@ -26,6 +26,8 @@
                         @Html.ActionLink("Add Photos", "AddPhotos", new { id = a.Id }) |
                     </form>
                     <form asp-area="Gallery" asp-controller="Gallery" asp-action="DetailsAlbum">
+                        <input type="hidden" @a.Id />
+
                         @Html.ActionLink("Details", "DetailsAlbum", new { id = a.Id })
 
 

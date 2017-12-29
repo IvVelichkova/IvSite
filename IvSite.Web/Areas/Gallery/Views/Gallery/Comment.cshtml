@@ -1,0 +1,60 @@
+﻿@model CreatePhotoServiceModel
+
+
+<div class="container">
+    <div class="row">
+        <hr />
+        <br />
+        <form asp-area="Gallery" id="commentForm" asp-controller="Gallery" asp-action="Comment" method="post">
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
+                <a><img src="@Model.Url" alt="@Model.Name" height="305" width="365"></a>
+                <input type="hidden" @Model.Id />
+                <textarea name="Content" id="Content" rows="10" cols="100" style="border-color:aqua"></textarea>
+                <button type="submit" id="commentBtn">Comment</button>
+            </div>
+
+            @*@if (Model.Commens.Any())
+
+                    <div class="container">
+                        <div class="row">
+                            @foreach (var com in Model.Commens)
+                        {
+                            <p>
+                                @com.Content
+                            </p>
+                    }
+                        </div>
+
+                    </div>
+
+            }*@
+        </form>
+
+        <script>
+            $("#commentBtn").submit(function (e) {
+
+                var url = "URL-la kym koito iskash da bude izpulnen ajax requesta";
+                var formData = $("#commentForm").serialize(); // Вземаме данните от formata
+                var method = "POST"; // Може да бъде всеки познат GET/POST/PUT/DELETE, etc.
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: formData,
+                    dataType: "json",
+                    success: function (data) {
+                        // Ако сървъра не върне някаква грешка ще влезне тук
+                        alert("Thanks for you comment!");
+                        console.log("server vurna ", data);
+                    },
+                    error: function (err) {
+                        // Ако сървъра върне грешка, ще се изпълни този метод
+                        alert("Someting went wrong. Please try again later!");
+                        console.log("greshkata koqto vurna servera e", err);
+                    }
+                });
+                e.preventDefault();
+            });
+        </script>
+    </div>
+</div>
+

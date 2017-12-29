@@ -21,5 +21,7 @@ namespace IvSite.Services.Gallery.Models
         public string PhotoName { get; set; }
         public string PhotoUrl { get; set; }
 
+        public List<CreatePhotoServiceModel> Photos { get; set; }
+
     }
 }

@@ -8,9 +8,13 @@ namespace IvSite.Services.Gallery
     public interface IAlbumService
     {
         Task CreateAlbumSRVC(CreateAlbumServiceModel model);
-        Task<List<CreateAlbumServiceModel>> AllAlbumsSRVC();
         Task AddPhotoSRVC(CreateAlbumServiceModel model);
+        Task<List<CreateAlbumServiceModel>> AllAlbumsSRVC();
+        Task<List<CreatePhotoServiceModel>> AllPhotosSRVC(int albumId);
+        Task<List<CreatePhotoServiceModel>> All(int idAl);
+
         CreateAlbumServiceModel ById(int Id);
+        CreatePhotoServiceModel PhotoById(int Id);
 
     }
 }

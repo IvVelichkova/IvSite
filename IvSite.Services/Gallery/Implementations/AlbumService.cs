@@ -23,11 +23,23 @@
         }
 
         public async Task<List<CreateAlbumServiceModel>> AllAlbumsSRVC()
+        => await this.db.Albums
+            .OrderByDescending(d => d.Id)
+            .ProjectTo<CreateAlbumServiceModel>()
+            .ToListAsync();
+
+
+        public async Task<List<CreatePhotoServiceModel>> AllPhotosSRVC(int albumId)
+             => await this.db.Photos.Where(a => a.AlbumId == albumId).ProjectTo<CreatePhotoServiceModel>().ToListAsync();
+
+        public async Task<List<CreatePhotoServiceModel>> All(int idAl)
         {
-            var res = await this.db.Albums.OrderByDescending(d => d.Id).ProjectTo<CreateAlbumServiceModel>().ToListAsync();
+            var res = await this.db
+                   .Photos.Select(r=>r).Where
+                   (h => h.AlbumId == idAl).ProjectTo<CreatePhotoServiceModel>().ToListAsync();
             return res;
         }
-        
+
 
 
         public async Task CreateAlbumSRVC(CreateAlbumServiceModel model)
@@ -40,8 +52,8 @@
                 Title = model.Title
             };
 
-           await this.db.Albums.AddAsync(album);
-           await this.db.SaveChangesAsync();
+            await this.db.Albums.AddAsync(album);
+            await this.db.SaveChangesAsync();
         }
         public async Task AddPhotoSRVC(CreateAlbumServiceModel model)
         {
@@ -61,5 +73,7 @@
 
         public CreateAlbumServiceModel ById(int Id) => this.db.Albums.Where(r => r.Id == Id).ProjectTo<CreateAlbumServiceModel>().SingleOrDefault();
 
+        public CreatePhotoServiceModel PhotoById(int Id) => this.db.Photos.Where(i => i.Id == Id).ProjectTo<CreatePhotoServiceModel>().SingleOrDefault();
+        
     }
 }

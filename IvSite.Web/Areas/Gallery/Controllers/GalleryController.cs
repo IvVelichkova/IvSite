@@ -26,9 +26,9 @@
             this.albumService = albumService;
         }
 
-        
-        
-        public async Task<IActionResult>Index()
+
+
+        public async Task<IActionResult> Index()
         {
             var albums = await this.albumService.AllAlbumsSRVC();
             return View(albums);
@@ -48,7 +48,7 @@
         [HttpPost]
         public async Task<IActionResult> CreateAlbum(CreateAlbumServiceModel model)
         {
-            model.AuthorId =  this.userManager.GetUserId(User);
+            model.AuthorId = this.userManager.GetUserId(User);
 
 
             if (!User.IsInRole(AuthorRole))
@@ -60,13 +60,18 @@
                 TempData.AddErrorMessage(ErrorModelState());
                 return View(model);
             }
-           await this.albumService.CreateAlbumSRVC(model);
+            await this.albumService.CreateAlbumSRVC(model);
             return RedirectToAction(IndexAction);
 
         }
-        public IActionResult DetailsAlbum()
+        public async Task<IActionResult> DetailsAlbum(int id)
         {
+
             var model = new DetailsAlbumServiceModel();
+            var photos = await this.albumService.All(id);
+            model.Photos = photos;
+            //model.Photos = photos;
+               
             return View(model);
         }
 
@@ -92,11 +97,33 @@
             {
                 return RedirectToAction(HomeIndex);
             }
-           await this.albumService.AddPhotoSRVC(model);
-                  
+            await this.albumService.AddPhotoSRVC(model);
+
             TempData.AddSuccessMessage(SuccessAddPhoto);
 
-            return RedirectToAction(IndexAction,GalleryControllerConst,new {area = AreaGallery });
+            return RedirectToAction(IndexAction, GalleryControllerConst, new { area = AreaGallery });
         }
+
+        public IActionResult Comment(CreatePhotoServiceModel model)
+        {
+            var photoId = model.Id;
+            var res = albumService.PhotoById(photoId);
+
+            return View(res);
+        }
+
+        //[HttpPost]
+        //public JsonResult Comment([FromBody]CreateCommentServiceModel model)
+        //{
+        //    var userId = userManager.GetUserId(User);
+        //    var comment=new CreateCommentServiceModel {
+        //        Content=model.Content,
+        //        UserId=userId,
+                
+                
+        //    }
+        //    //return Json(albumService.CreateComment(model.UserId, model.Commens));
+        //}
+
     }
 }
